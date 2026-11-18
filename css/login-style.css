@@ -1,0 +1,607 @@
+/* ================= HALAMAN LOGIN / DAFTAR ================= */
+.auth-page-main {
+    background: #f5f6fb;
+    padding: 40px 0 64px;
+}
+
+.auth-grid {
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 32px;
+    align-items: center;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+/* ================= KARTU PROMO HIJAU KIRI ================= */
+.auth-promo-card {
+    background: linear-gradient(160deg, #17753e 0%, #11582e 100%);
+    color: #ffffff;
+    border-radius: 22px;
+    padding: 32px 30px;
+    box-shadow: 0 20px 40px -18px rgba(21, 107, 56, 0.45);
+}
+
+.promo-top-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #dcfce7;
+    color: var(--green);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 6px 13px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+}
+
+.promo-top-badge .check-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--green);
+    color: #ffffff;
+    font-size: 0.62rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-promo-card h1 {
+    font-size: clamp(1.55rem, 2.5vw, 1.95rem);
+    font-weight: 800;
+    line-height: 1.24;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+}
+
+.promo-desc {
+    font-size: 0.84rem;
+    color: #dcfce7;
+    line-height: 1.65;
+    margin-bottom: 24px;
+}
+
+/* Preview Foto Kost di Dalam Kartu Hijau */
+.promo-kost-preview {
+    position: relative;
+    height: 220px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.promo-kost-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.promo-kost-overlay {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.kost-info-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.kost-mini-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    background: var(--green-mint);
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.kost-info-left strong {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.kost-info-left span {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.kost-avail-tag {
+    background: var(--green-mint);
+    color: var(--green);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 7px;
+    white-space: nowrap;
+}
+
+/* Kartu Testimoni */
+.promo-testimonial {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    padding: 18px;
+}
+
+.rating-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.rating-row .stars {
+    color: #facc15;
+    font-size: 0.88rem;
+    letter-spacing: 1px;
+}
+
+.rating-row strong {
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.quote-text {
+    font-size: 0.79rem;
+    font-style: italic;
+    color: #f0fdf4;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.author-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.author-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.author-row strong {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.author-row span {
+    display: block;
+    font-size: 0.68rem;
+    color: #bbf7d0;
+}
+
+/* ================= KARTU FORM KANAN ================= */
+.auth-form-card {
+    background: #ffffff;
+    border: 1px solid #e8ecf4;
+    border-radius: 22px;
+    padding: 30px 32px;
+    box-shadow: 0 18px 42px -18px rgba(15, 23, 42, 0.08);
+}
+
+/* Tabs Masuk / Daftar */
+.auth-tabs {
+    background: #eef1f8;
+    border-radius: 12px;
+    padding: 4px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 22px;
+}
+
+.auth-tab-btn {
+    border: none;
+    background: transparent;
+    border-radius: 9px;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.auth-tab-btn.active {
+    background: #ffffff;
+    color: var(--green);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+/* Role Selector */
+.role-selector-block {
+    margin-bottom: 14px;
+}
+
+.role-label {
+    display: block;
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.role-btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.role-btn {
+    border: 1px solid transparent;
+    background: #eef1f8;
+    color: #475569;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 0.77rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.role-btn.active {
+    background: #d8f3e3;
+    color: var(--green);
+    border-color: #bbf7d0;
+}
+
+/* Social Login Buttons */
+.social-login-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.btn-social-google,
+.btn-social-sso {
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 0.77rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-social-google {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: var(--text-dark);
+}
+
+.btn-social-google:hover {
+    background: #f8fafc;
+}
+
+.btn-social-sso {
+    background: #d8f3e3;
+    border: 1px solid #bbf7d0;
+    color: var(--green);
+}
+
+.btn-social-sso:hover {
+    background: #c6edd6;
+}
+
+/* Divider */
+.auth-divider {
+    position: relative;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.auth-divider::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: #e8ecf4;
+}
+
+.auth-divider span {
+    position: relative;
+    background: #ffffff;
+    padding: 0 12px;
+    font-size: 0.72rem;
+    color: #94a3b8;
+}
+
+/* Form Fields */
+.auth-form-body.hidden {
+    display: none;
+}
+
+.auth-field {
+    margin-bottom: 15px;
+}
+
+.field-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.field-label-row label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.role-badge-text {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--green);
+}
+
+.forgot-link {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--green);
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+.auth-input-wrap {
+    background: #eef1f8;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 11px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.auth-input-wrap:focus-within {
+    background: #ffffff;
+    border-color: var(--green);
+}
+
+.auth-input-wrap svg {
+    color: #94a3b8;
+    flex-shrink: 0;
+}
+
+.auth-input-wrap input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.82rem;
+    color: var(--text-dark);
+    outline: none;
+}
+
+.auth-input-wrap input::placeholder {
+    color: #94a3b8;
+}
+
+.btn-toggle-pass {
+    border: none;
+    background: transparent;
+    color: #64748b;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Options Row */
+.auth-options-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.74rem;
+    color: #475569;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    accent-color: #2563eb;
+    width: 14px;
+    height: 14px;
+}
+
+.instant-verify {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--green);
+}
+
+.btn-auth-submit {
+    width: 100%;
+    background: var(--green);
+    color: #ffffff;
+    border: none;
+    border-radius: 11px;
+    padding: 13px 20px;
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-auth-submit:hover {
+    background: var(--green-hover);
+}
+
+.security-note-bar {
+    margin-top: 16px;
+    background: #eef1f8;
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 0.71rem;
+    color: #64748b;
+    text-align: center;
+}
+
+.security-note-bar svg {
+    color: var(--green);
+    flex-shrink: 0;
+}
+
+/* Footer Bottom Pill Bar */
+.footer-bottom-pill {
+    background: #f1f3f9;
+    border-radius: 12px;
+    padding: 16px 22px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.76rem;
+    color: #64748b;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 920px) {
+    .auth-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .auth-form-card {
+        padding: 24px 18px;
+    }
+
+    .role-btn-grid,
+    .social-login-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ================= FOOTER 4 KOLOM ================= */
+.footer-light {
+    background: #ffffff;
+    border-top: 1px solid #e8edf3;
+    padding-top: 48px;
+}
+
+.footer-grid-4 {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+    gap: 32px;
+    padding-bottom: 40px;
+}
+
+.footer-brand p {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    max-width: 240px;
+    line-height: 1.6;
+}
+
+.footer-col h4 {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+}
+
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.footer-col li,
+.footer-col a {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    transition: color 0.15s;
+}
+
+.footer-col a:hover {
+    color: var(--green);
+}
+
+.footer-bottom-bar {
+    border-top: 1px solid #f1f5f9;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.76rem;
+    color: #94a3b8;
+}
+
+@media (max-width: 960px) {
+    .footer-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .footer-grid-4 {
+        grid-template-columns: 1fr;
+    }
+}

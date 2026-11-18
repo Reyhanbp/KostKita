@@ -1,107 +1,696 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cari Kost | KostKita</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="container nav">
-        <a class="logo" href="index.html">Kost<span>Kita</span></a>
-        <nav class="navlinks">
-          <a href="index.html">Beranda</a><a href="cari-kost.html">Cari Kost</a
-          ><a href="tentang-kami.html">Tentang Kami</a
-          ><a href="bantuan.html">Bantuan</a
-          ><a class="btn outline" href="login.html">Masuk</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cari Kost | KostKita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/kost-style.css" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="topbar">
+    <div class="container nav">
+      <a class="logo" href="index.html">KostKita</a>
+
+      <nav class="navlinks">
+        <a href="index.html">Beranda</a>
+        <a class="active" href="cari-kost.html">Cari Kost</a>
+        <a href="tentang-kami.html">Tentang Kami</a>
+        <a href="bantuan.html">Bantuan</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn-auth" href="login.html">Masuk / Daftar</a>
+        <a class="avatar-badge" href="login.html" aria-label="Profil Pengguna">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="search-page-main">
+    <div class="container">
+      <!-- BREADCRUMB & HEADER -->
+      <div class="search-page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Beranda</a>
+          <span>›</span>
+          <span class="current">Pencarian Kost</span>
         </nav>
-      </div>
-    </header>
-    <main>
-      <section class="container">
-        <div class="page-head">
-          <span class="eyebrow">Temukan hunian</span>
-          <h1>Cari Kost</h1>
-          <p class="muted">
-            Gunakan pencarian dan filter untuk menemukan kost yang sesuai.
-          </p>
-        </div>
-        <div class="filters">
-          <div class="field">
-            <label>Kata kunci / lokasi</label
-            ><input id="searchKost" placeholder="Contoh: Sukolilo" />
+
+        <div class="header-title-row">
+          <div>
+            <h1>Hasil Pencarian Kost Dekat Kampus</h1>
+            <p class="subtitle">
+              Menampilkan rekomendasi kost terbaik yang cocok dengan kriteria mahasiswa
+            </p>
           </div>
-          <div class="field">
-            <label>Rentang harga</label
-            ><select id="priceFilter">
-              <option value="">Semua harga</option>
-              <option value="1000000">Di bawah Rp1.000.000</option>
-              <option value="1500000">Di bawah Rp1.500.000</option>
-            </select>
+          <span class="verified-pill">
+            <span class="dot"></span>
+            Terverifikasi Kampus 2026
+          </span>
+        </div>
+
+        <!-- BAR PENCARIAN ATAS -->
+        <div class="top-search-bar">
+          <div class="top-search-input-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <input type="text" id="searchKost" placeholder="Yogyakarta, Dekat Kampus UGM, UI, ITB..." />
           </div>
-          <button class="btn" onclick="filterKost()">Terapkan Filter</button>
-        </div>
-        <div class="grid" id="kostList">
-          <article class="card">
-            <img
-              src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=900"
-              alt="Kamar kost"
-            />
-            <div class="card-body">
-              <span class="tag">Dekat kampus</span>
-              <h3>Kost Melati Residence</h3>
-              <p class="muted small">Sukolilo, Surabaya</p>
-              <p class="price">
-                Rp850.000 <span class="small muted">/ bulan</span>
-              </p>
-              <a class="btn" href="detail-kost.html">Lihat Detail</a>
-            </div>
-          </article>
-          <article class="card">
-            <img
-              src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900"
-              alt="Kamar kost nyaman"
-            />
-            <div class="card-body">
-              <span class="tag">Wi-Fi</span>
-              <h3>Kost Harmoni</h3>
-              <p class="muted small">Keputih, Surabaya</p>
-              <p class="price">
-                Rp1.000.000 <span class="small muted">/ bulan</span>
-              </p>
-              <a class="btn" href="detail-kost.html">Lihat Detail</a>
-            </div>
-          </article>
-          <article class="card">
-            <img
-              src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900"
-              alt="Interior kamar"
-            />
-            <div class="card-body">
-              <span class="tag">Kamar mandi dalam</span>
-              <h3>Kost Kampus Point</h3>
-              <p class="muted small">Gebang, Surabaya</p>
-              <p class="price">
-                Rp1.200.000 <span class="small muted">/ bulan</span>
-              </p>
-              <a class="btn" href="detail-kost.html">Lihat Detail</a>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <div class="container footer-row">
-        <div>
-          <div class="logo" style="color: white">Kost<span>Kita</span></div>
-          <p class="small">Temukan tempat tinggal nyaman dekat kampus.</p>
-        </div>
-        <div class="small">
-          © 2026 KostKita · Website pencarian kost mahasiswa
+          <button type="button" class="btn-update-search" onclick="filterKost()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            Perbarui Pencarian
+          </button>
         </div>
       </div>
-    </footer>
-    <script src="js/app.js"></script>
-  </body>
+
+      <!-- LAYOUT 2 KOLOM: SIDEBAR FILTER & HASIL PENCARIAN -->
+      <div class="search-layout">
+        <!-- SIDEBAR FILTER KIRI -->
+        <aside class="filter-sidebar">
+          <div class="sidebar-head">
+            <div class="sidebar-title">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="4" y1="21" x2="4" y2="14" />
+                <line x1="4" y1="10" x2="4" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="12" />
+                <line x1="12" y1="8" x2="12" y2="3" />
+                <line x1="20" y1="21" x2="20" y2="16" />
+                <line x1="20" y1="12" x2="20" y2="3" />
+                <line x1="1" y1="14" x2="7" y2="14" />
+                <line x1="9" y1="8" x2="15" y2="8" />
+                <line x1="17" y1="16" x2="23" y2="16" />
+              </svg>
+              <span>Filter Pencarian</span>
+            </div>
+            <button type="button" class="btn-reset-link" onclick="resetFilter()">Reset Filter</button>
+          </div>
+
+          <!-- RENTANG HARGA -->
+          <div class="filter-block">
+            <h3 class="filter-block-title">Rentang Harga (per bulan)</h3>
+            <div class="price-box-grid">
+              <div class="price-input-box">
+                <span>MIN</span>
+                <input type="text" id="minPriceDisplay" value="Rp 500.000" readonly />
+              </div>
+              <div class="price-input-box">
+                <span>MAX</span>
+                <input type="text" id="maxPriceDisplay" value="Rp 4.000.000" readonly />
+              </div>
+            </div>
+
+            <div class="range-slider-wrap">
+              <div class="range-track">
+                <div class="range-fill" id="rangeFill"></div>
+              </div>
+              <input type="range" id="minPriceRange" min="500000" max="4000000" step="100000" value="500000" />
+              <input type="range" id="maxPriceRange" min="500000" max="4000000" step="100000" value="4000000" />
+            </div>
+            <div class="range-labels">
+              <span>Rp 500rb</span>
+              <span>Rp 4jt+</span>
+            </div>
+          </div>
+
+          <!-- TIPE HUNIAN -->
+          <div class="filter-block">
+            <h3 class="filter-block-title">Tipe Hunian</h3>
+            <div class="check-list" id="tipeHunianList">
+              <label class="check-item active-row">
+                <span class="check-left">
+                  <input type="radio" name="tipeHunian" value="Semua" checked />
+                  <span class="custom-box"></span>
+                  <span>Semua Tipe</span>
+                </span>
+                <span class="active-tag">Aktif</span>
+              </label>
+
+              <label class="check-item">
+                <span class="check-left">
+                  <input type="radio" name="tipeHunian" value="Putra" />
+                  <span class="custom-box"></span>
+                  <span>Kost Putra</span>
+                </span>
+              </label>
+
+              <label class="check-item">
+                <span class="check-left">
+                  <input type="radio" name="tipeHunian" value="Putri" />
+                  <span class="custom-box"></span>
+                  <span>Kost Putri</span>
+                </span>
+              </label>
+
+              <label class="check-item">
+                <span class="check-left">
+                  <input type="radio" name="tipeHunian" value="Campur" />
+                  <span class="custom-box"></span>
+                  <span>Kost Campur</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- FASILITAS KOST -->
+          <div class="filter-block">
+            <h3 class="filter-block-title">Fasilitas Kost</h3>
+            <div class="check-list" id="fasilitasList">
+              <label class="check-item">
+                <span class="check-left">
+                  <input type="checkbox" value="ac" />
+                  <span class="custom-box"></span>
+                  <svg class="fac-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93 4.93 19.07" />
+                  </svg>
+                  <span>AC</span>
+                </span>
+              </label>
+
+              <label class="check-item">
+                <span class="check-left">
+                  <input type="checkbox" value="km-dalam" />
+                  <span class="custom-box"></span>
+                  <svg class="fac-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-3a1 1 0 0 1 1-1z" />
+                    <path d="M6 12V5a2 2 0 0 1 2-2h3v2.25" />
+                  </svg>
+                  <span>Kamar Mandi Dalam</span>
+                </span>
+              </label>
+
+              <label class="check-item">
+                <span class="check-left">
+                  <input type="checkbox" value="wifi" />
+                  <span class="custom-box"></span>
+                  <svg class="fac-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+                    <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+                    <line x1="12" y1="20" x2="12.01" y2="20" />
+                  </svg>
+                  <span>WiFi Gratis</span>
+                </span>
+              </label>
+
+              <label class="check-item">
+                <span class="check-left">
+                  <input type="checkbox" value="parkir" />
+                  <span class="custom-box"></span>
+                  <svg class="fac-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <circle cx="5.5" cy="17.5" r="3.5" />
+                    <circle cx="18.5" cy="17.5" r="3.5" />
+                    <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5V14l-3-3 4-3 2 3h2" />
+                  </svg>
+                  <span>Parkir Motor</span>
+                </span>
+              </label>
+
+              <label class="check-item">
+                <span class="check-left">
+                  <input type="checkbox" value="dapur" />
+                  <span class="custom-box"></span>
+                  <svg class="fac-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+                    <path d="M7 2v20" />
+                    <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+                  </svg>
+                  <span>Dapur Bersama</span>
+                </span>
+              </label>
+
+              <label class="check-item">
+                <span class="check-left">
+                  <input type="checkbox" value="kasur" />
+                  <span class="custom-box"></span>
+                  <svg class="fac-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M2 4v16" />
+                    <path d="M2 8h18a2 2 0 0 1 2 2v10" />
+                    <path d="M2 17h20" />
+                    <path d="M6 8v9" />
+                  </svg>
+                  <span>Kasur</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <button type="button" class="btn-apply-filter" onclick="filterKost()">
+            Terapkan Filter
+          </button>
+        </aside>
+
+        <!-- KOLOM KANAN: DAFTAR HASIL -->
+        <div class="results-column">
+          <!-- BAR INFO & URUTKAN -->
+          <div class="results-toolbar">
+            <p class="results-summary">
+              <strong id="resultCount">3 Kost</strong> tersedia di sekitar lokasi Anda
+            </p>
+            <div class="sort-control">
+              <label for="sortSelect">Urutkan:</label>
+              <select id="sortSelect" onchange="filterKost()">
+                <option value="default">Rekomendasi Terbaik</option>
+                <option value="price-asc">Harga Terendah</option>
+                <option value="price-desc">Harga Tertinggi</option>
+                <option value="rating-desc">Rating Tertinggi</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- LIST KARTU HORIZONTAL -->
+          <div class="horizontal-kost-list" id="kostList">
+            <!-- Card 1 -->
+            <article class="h-card" data-kategori="Putra" data-harga="1450000" data-rating="4.9"
+              data-fasilitas="wifi,ac,km-dalam,kasur"
+              data-search="kost d'kalyana pogung baru sleman yogyakarta ugm fakultas teknik khusus putra wifi ac kamar mandi dalam meja belajar">
+              <div class="h-card-media">
+                <span class="room-avail-badge">• Tersedia 2 Kamar</span>
+                <span class="h-rating-badge"><span>★</span> 4.9</span>
+                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=900"
+                  alt="Kost D'Kalyana Pogung Baru" />
+              </div>
+
+              <div class="h-card-body">
+                <div class="h-card-top">
+                  <h3>Kost D'Kalyana Pogung Baru</h3>
+                  <button type="button" class="btn-bookmark" aria-label="Simpan Kost" onclick="toggleBookmark(this)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                    </svg>
+                  </button>
+                </div>
+
+                <p class="h-location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  Sleman, DI Yogyakarta (600 meter dari Fakultas Teknik UGM)
+                </p>
+
+                <div class="h-meta-row">
+                  <span class="star">★</span>
+                  <strong>4.9</strong>
+                  <span class="muted">(42 ulasan)</span>
+                  <span class="dot-sep">•</span>
+                  <span class="type-note">Khusus Putra</span>
+                </div>
+
+                <div class="h-facilities">
+                  <span>WiFi</span>
+                  <span>AC</span>
+                  <span>K. Mandi Dalam</span>
+                  <span>Meja Belajar</span>
+                </div>
+
+                <div class="h-card-bottom">
+                  <div>
+                    <span class="rent-label">Harga Sewa</span>
+                    <div class="rent-price">
+                      <strong>Rp 1.450.000</strong>
+                      <span>/ bulan</span>
+                    </div>
+                  </div>
+                  <a href="detail-kost.html" class="btn-detail-arrow">Lihat Detail →</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="h-card" data-kategori="Putri" data-harga="1650000" data-rating="4.8"
+              data-fasilitas="wifi,dapur,kasur"
+              data-search="kost griya asri kukusan estetik beji depok vokasi ui khusus putri wifi kamar luas dapur bersama cctv">
+              <div class="h-card-media">
+                <span class="room-avail-badge">• Tersedia 1 Kamar</span>
+                <span class="h-rating-badge"><span>★</span> 4.8</span>
+                <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900"
+                  alt="Kost Griya Asri Kukusan Estetik" />
+              </div>
+
+              <div class="h-card-body">
+                <div class="h-card-top">
+                  <h3>Kost Griya Asri Kukusan Estetik</h3>
+                  <button type="button" class="btn-bookmark" aria-label="Simpan Kost" onclick="toggleBookmark(this)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                    </svg>
+                  </button>
+                </div>
+
+                <p class="h-location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  Beji, Depok (800 meter dari Vokasi UI)
+                </p>
+
+                <div class="h-meta-row">
+                  <span class="star">★</span>
+                  <strong>4.8</strong>
+                  <span class="muted">(35 ulasan)</span>
+                  <span class="dot-sep">•</span>
+                  <span class="type-note">Suasana Hening · Putri</span>
+                </div>
+
+                <div class="h-facilities">
+                  <span>WiFi</span>
+                  <span>Kamar Luas</span>
+                  <span>Dapur Bersama</span>
+                  <span>CCTV</span>
+                </div>
+
+                <div class="h-card-bottom">
+                  <div>
+                    <span class="rent-label">Harga Sewa</span>
+                    <div class="rent-price">
+                      <strong>Rp 1.650.000</strong>
+                      <span>/ bulan</span>
+                    </div>
+                  </div>
+                  <a href="detail-kost.html" class="btn-detail-arrow">Lihat Detail →</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="h-card" data-kategori="Campur" data-harga="2100000" data-rating="4.9"
+              data-fasilitas="ac,km-dalam,parkir,kasur"
+              data-search="kost paviliun nirwana dago asri bandung gerbang utama itb campur ac water heater balkon taman parkir mobil motor">
+              <div class="h-card-media">
+                <span class="room-avail-badge">• Tersedia 3 Kamar</span>
+                <span class="h-rating-badge"><span>★</span> 4.9</span>
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900"
+                  alt="Kost Paviliun Nirwana Dago Asri" />
+              </div>
+
+              <div class="h-card-body">
+                <div class="h-card-top">
+                  <h3>Kost Paviliun Nirwana Dago Asri</h3>
+                  <button type="button" class="btn-bookmark" aria-label="Simpan Kost" onclick="toggleBookmark(this)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                    </svg>
+                  </button>
+                </div>
+
+                <p class="h-location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  Dago, Bandung (500 meter dari Gerbang Utama ITB)
+                </p>
+
+                <div class="h-meta-row">
+                  <span class="star">★</span>
+                  <strong>4.9</strong>
+                  <span class="muted">(56 ulasan)</span>
+                  <span class="dot-sep">•</span>
+                  <span class="type-note">Bebas Jam Malam · Campur</span>
+                </div>
+
+                <div class="h-facilities">
+                  <span>AC</span>
+                  <span>Water Heater</span>
+                  <span>Balkon Taman</span>
+                  <span>Parkir Mobil/Motor</span>
+                </div>
+
+                <div class="h-card-bottom">
+                  <div>
+                    <span class="rent-label">Harga Sewa</span>
+                    <div class="rent-price">
+                      <strong>Rp 2.100.000</strong>
+                      <span>/ bulan</span>
+                    </div>
+                  </div>
+                  <a href="detail-kost.html" class="btn-detail-arrow">Lihat Detail →</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- EMPTY STATE -->
+          <div id="emptyState" class="empty-state" style="display: none">
+            <div class="empty-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </div>
+            <h3>Kost yang sesuai filter belum ditemukan</h3>
+            <p>Coba sesuaikan rentang harga, pilih tipe hunian lain, atau kurangi centang fasilitas.</p>
+            <button type="button" class="btn-update-search" onclick="resetFilter()">Reset Semua Filter</button>
+          </div>
+
+          <!-- PAGINATION FOOTER BAR -->
+          <div class="pagination-bar" id="paginationBar">
+            <span id="paginationText">Menampilkan 1 - 3 dari 3 hunian terdekat</span>
+            <div class="page-buttons">
+              <button type="button" class="page-btn" disabled aria-label="Halaman Sebelumnya">‹</button>
+              <button type="button" class="page-btn active">1</button>
+              <button type="button" class="page-btn" disabled aria-label="Halaman Berikutnya">›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER 4 KOLOM -->
+  <footer class="footer-light">
+    <div class="container footer-grid-4">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">KostKita</a>
+        <p>Solusi pencarian kost terpercaya dan terjangkau untuk mahasiswa Indonesia.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kampus Populer</h4>
+        <ul>
+          <li><a href="cari-kost.html?q=UGM">Kost Dekat UGM</a></li>
+          <li><a href="cari-kost.html?q=UI">Kost Dekat UI</a></li>
+          <li><a href="cari-kost.html?q=ITB">Kost Dekat ITB</a></li>
+          <li><a href="cari-kost.html?q=UB">Kost Dekat UB</a></li>
+          <li><a href="cari-kost.html?q=Undip">Kost Dekat Undip</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Bantuan & Panduan</h4>
+        <ul>
+          <li><a href="bantuan.html">Pusat Bantuan</a></li>
+          <li><a href="tentang-kami.html">Syarat & Ketentuan</a></li>
+          <li><a href="tentang-kami.html">Kebijakan Privasi</a></li>
+          <li><a href="bantuan.html">Panduan Sewa Aman</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Hubungi Kami</h4>
+        <ul class="contact-list">
+          <li>Email: halo@kostkita.id</li>
+          <li>WhatsApp: +62 812-3456-7890</li>
+          <li>Senin - Minggu (08.00 - 21.00 WIB)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom-bar">
+      <span>© 2026 KostKita. Hak cipta dilindungi undang-undang.</span>
+      <span>Indonesia Terkoneksi Mahasiswa</span>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("searchKost");
+    const minRange = document.getElementById("minPriceRange");
+    const maxRange = document.getElementById("maxPriceRange");
+    const minDisplay = document.getElementById("minPriceDisplay");
+    const maxDisplay = document.getElementById("maxPriceDisplay");
+    const rangeFill = document.getElementById("rangeFill");
+    const sortSelect = document.getElementById("sortSelect");
+    const kostList = document.getElementById("kostList");
+    const resultCount = document.getElementById("resultCount");
+    const paginationBar = document.getElementById("paginationBar");
+    const paginationText = document.getElementById("paginationText");
+    const emptyState = document.getElementById("emptyState");
+    const allCards = Array.from(kostList.querySelectorAll(".h-card"));
+
+    function formatRupiah(num) {
+      return "Rp " + Number(num).toLocaleString("id-ID");
+    }
+
+    function updateSliderUI() {
+      let minVal = parseInt(minRange.value, 10);
+      let maxVal = parseInt(maxRange.value, 10);
+
+      if (minVal > maxVal - 100000) {
+        minVal = maxVal - 100000;
+        minRange.value = minVal;
+      }
+
+      minDisplay.value = formatRupiah(minVal);
+      maxDisplay.value = formatRupiah(maxVal);
+
+      const minPercent = ((minVal - 500000) / (4000000 - 500000)) * 100;
+      const maxPercent = ((maxVal - 500000) / (4000000 - 500000)) * 100;
+      rangeFill.style.left = minPercent + "%";
+      rangeFill.style.width = maxPercent - minPercent + "%";
+    }
+
+    minRange.addEventListener("input", updateSliderUI);
+    maxRange.addEventListener("input", updateSliderUI);
+
+    // Pindahkan badge "Aktif" saat tipe hunian dipilih
+    document.querySelectorAll('input[name="tipeHunian"]').forEach((radio) => {
+      radio.addEventListener("change", () => {
+        document.querySelectorAll("#tipeHunianList .check-item").forEach((item) => {
+          item.classList.remove("active-row");
+          const oldTag = item.querySelector(".active-tag");
+          if (oldTag) oldTag.remove();
+        });
+
+        const parentLabel = radio.closest(".check-item");
+        parentLabel.classList.add("active-row");
+        const tag = document.createElement("span");
+        tag.className = "active-tag";
+        tag.textContent = "Aktif";
+        parentLabel.appendChild(tag);
+      });
+    });
+
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        filterKost();
+      }
+    });
+
+    function toggleBookmark(btn) {
+      btn.classList.toggle("saved");
+    }
+
+    function filterKost() {
+      const keyword = searchInput.value.trim().toLowerCase();
+      const minPrice = parseInt(minRange.value, 10);
+      const maxPrice = parseInt(maxRange.value, 10);
+      const selectedTipe = document.querySelector('input[name="tipeHunian"]:checked').value;
+      const selectedFasilitas = Array.from(
+        document.querySelectorAll('#fasilitasList input[type="checkbox"]:checked')
+      ).map((cb) => cb.value);
+      const sortBy = sortSelect.value;
+
+      const sortedCards = [...allCards].sort((a, b) => {
+        const priceA = parseInt(a.dataset.harga, 10);
+        const priceB = parseInt(b.dataset.harga, 10);
+        const ratingA = parseFloat(a.dataset.rating);
+        const ratingB = parseFloat(b.dataset.rating);
+
+        if (sortBy === "price-asc") return priceA - priceB;
+        if (sortBy === "price-desc") return priceB - priceA;
+        if (sortBy === "rating-desc") return ratingB - ratingA;
+        return allCards.indexOf(a) - allCards.indexOf(b);
+      });
+
+      let visibleCount = 0;
+
+      sortedCards.forEach((card) => {
+        const cardKategori = card.dataset.kategori;
+        const cardHarga = parseInt(card.dataset.harga, 10);
+        const cardSearch = card.dataset.search.toLowerCase();
+        const cardFasilitas = card.dataset.fasilitas.split(",");
+
+        const matchKeyword = !keyword || cardSearch.includes(keyword);
+        const matchPrice = cardHarga >= minPrice && cardHarga <= maxPrice;
+        const matchTipe = selectedTipe === "Semua" || cardKategori === selectedTipe;
+        const matchFasilitas = selectedFasilitas.every((f) => cardFasilitas.includes(f));
+
+        if (matchKeyword && matchPrice && matchTipe && matchFasilitas) {
+          card.style.display = "flex";
+          visibleCount++;
+        } else {
+          card.style.display = "none";
+        }
+
+        kostList.appendChild(card);
+      });
+
+      resultCount.textContent = visibleCount + " Kost";
+      emptyState.style.display = visibleCount === 0 ? "block" : "none";
+      paginationBar.style.display = visibleCount === 0 ? "none" : "flex";
+      paginationText.textContent = `Menampilkan 1 - ${visibleCount} dari ${visibleCount} hunian terdekat`;
+    }
+
+    function resetFilter() {
+      searchInput.value = "";
+      minRange.value = 500000;
+      maxRange.value = 4000000;
+      updateSliderUI();
+
+      const defaultRadio = document.querySelector('input[name="tipeHunian"][value="Semua"]');
+      defaultRadio.checked = true;
+      defaultRadio.dispatchEvent(new Event("change"));
+
+      document.querySelectorAll('#fasilitasList input[type="checkbox"]').forEach((cb) => {
+        cb.checked = false;
+      });
+
+      sortSelect.value = "default";
+      filterKost();
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      updateSliderUI();
+
+      const params = new URLSearchParams(window.location.search);
+      const queryParam = params.get("q");
+      const kategoriParam = params.get("kategori");
+
+      if (queryParam) {
+        searchInput.value = queryParam;
+      }
+
+      if (kategoriParam) {
+        const targetRadio = Array.from(document.querySelectorAll('input[name="tipeHunian"]')).find(
+          (r) => r.value.toLowerCase() === kategoriParam.toLowerCase()
+        );
+        if (targetRadio) {
+          targetRadio.checked = true;
+          targetRadio.dispatchEvent(new Event("change"));
+        }
+      }
+
+      if (queryParam || kategoriParam) {
+        filterKost();
+      }
+    });
+  </script>
+  <script src="js/app.js"></script>
+</body>
+
 </html>

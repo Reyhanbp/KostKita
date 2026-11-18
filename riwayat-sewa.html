@@ -1,63 +1,190 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Riwayat Sewa | KostKita</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="container nav">
-        <a class="logo" href="index.html">Kost<span>Kita</span></a>
-        <nav class="navlinks">
-          <a href="index.html">Beranda</a><a href="cari-kost.html">Cari Kost</a
-          ><a href="tentang-kami.html">Tentang Kami</a
-          ><a href="bantuan.html">Bantuan</a
-          ><a class="btn outline" href="login.html">Masuk</a>
-        </nav>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riwayat Penyewaan | KostKita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/riwayat-style.css" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="topbar">
+    <div class="container nav">
+      <a class="logo" href="index.html">KostKita</a>
+
+      <nav class="navlinks">
+        <a href="index.html">Beranda</a>
+        <a href="cari-kost.html">Cari Kost</a>
+        <a href="tentang-kami.html">Tentang Kami</a>
+        <a href="bantuan.html">Bantuan</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn-auth" href="riwayat-sewa.html">Akun Saya</a>
       </div>
-    </header>
-    <main>
-      <section class="container">
-        <div class="page-head">
-          <span class="eyebrow">Aktivitas akun</span>
-          <h1>Riwayat Sewa</h1>
-          <p class="muted">Daftar pengajuan dan transaksi penyewaan kost.</p>
-        </div>
-        <div class="panel">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Nama Kost</th>
-                <th>Tanggal</th>
-                <th>Total</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody id="historyRows">
-              <tr>
-                <td>Kost Melati Residence</td>
-                <td>-</td>
-                <td>Rp850.000</td>
-                <td><span class="tag">Berhasil</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <div class="container footer-row">
-        <div>
-          <div class="logo" style="color: white">Kost<span>Kita</span></div>
-          <p class="small">Temukan tempat tinggal nyaman dekat kampus.</p>
-        </div>
-        <div class="small">
-          © 2026 KostKita · Website pencarian kost mahasiswa
-        </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="history-page-main">
+    <div class="container">
+      <div class="history-page-header">
+        <h1>Riwayat Penyewaan</h1>
+        <p class="history-subtitle">
+          Pantau status pengajuan dan pembayaran kost kamu.
+        </p>
       </div>
-    </footer>
-    <script src="js/app.js"></script>
-  </body>
+
+      <!-- DAFTAR KARTU RIWAYAT PENYEWAAN -->
+      <div class="history-list" id="historyList">
+        <!-- Item 1: Berhasil -->
+        <article class="history-card">
+          <div class="history-kost-info">
+            <h2>Kost Dahlia</h2>
+            <p>1 Desember 2026 • 3 bulan</p>
+          </div>
+
+          <div class="history-price-info">
+            <strong>Rp4.350.000</strong>
+            <span>Status pembayaran</span>
+          </div>
+
+          <div class="history-status-col">
+            <span class="status-pill-badge status-paid">Berhasil</span>
+          </div>
+        </article>
+
+        <!-- Item 2: Belum dibayar -->
+        <article class="history-card">
+          <div class="history-kost-info">
+            <h2>Kost Melati</h2>
+            <p>15 Januari 2027 • 1 bulan</p>
+          </div>
+
+          <div class="history-price-info">
+            <strong>Rp1.200.000</strong>
+            <span>Status pembayaran</span>
+          </div>
+
+          <div class="history-status-col">
+            <a href="pembayaran.html" class="status-pill-badge status-unpaid" title="Klik untuk melanjutkan pembayaran">
+              Belum dibayar
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER 4 KOLOM -->
+  <footer class="footer-light">
+    <div class="container footer-grid-4">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">KostKita</a>
+        <p>Solusi pencarian kost terpercaya dan terjangkau untuk mahasiswa Indonesia.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kampus Populer</h4>
+        <ul>
+          <li><a href="cari-kost.html?q=UGM">Kost Dekat UGM</a></li>
+          <li><a href="cari-kost.html?q=UI">Kost Dekat UI</a></li>
+          <li><a href="cari-kost.html?q=ITB">Kost Dekat ITB</a></li>
+          <li><a href="cari-kost.html?q=UB">Kost Dekat UB</a></li>
+          <li><a href="cari-kost.html?q=Undip">Kost Dekat Undip</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Bantuan &amp; Panduan</h4>
+        <ul>
+          <li><a href="bantuan.html">Pusat Bantuan</a></li>
+          <li><a href="tentang-kami.html">Syarat &amp; Ketentuan</a></li>
+          <li><a href="tentang-kami.html">Kebijakan Privasi</a></li>
+          <li><a href="bantuan.html#faqSection">Panduan Sewa Aman</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Hubungi Kami</h4>
+        <ul class="contact-list">
+          <li>Email: halo@kostkita.id</li>
+          <li>WhatsApp: +62 812-3456-7890</li>
+          <li>Senin - Minggu (08.00 - 21.00 WIB)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom-bar">
+      <span>© 2026 KostKita. Hak cipta dilindungi undang-undang.</span>
+      <span>Indonesia Terkoneksi Mahasiswa</span>
+    </div>
+  </footer>
+
+  <script>
+    // Sinkronisasi transaksi baru dari halaman pembayaran jika user menyelesaikan simulasi
+    (function syncOrdersHistory() {
+      try {
+        const savedOrders = JSON.parse(localStorage.getItem("kostkita_orders") || "[]");
+        if (!savedOrders.length) return;
+
+        const historyList = document.getElementById("historyList");
+        const defaultUnpaidItem = {
+          kostName: "Kost Melati",
+          startDate: "15 Januari 2027",
+          months: 1,
+          totalAmount: 1200000,
+          paid: false
+        };
+
+        const itemsToRender = [
+          ...savedOrders.map((item) => ({
+            kostName: item.kostName || "Kost Dahlia",
+            startDate: item.startDate || "1 Desember 2026",
+            months: item.months || 3,
+            totalAmount: item.totalAmount || 4350000,
+            paid: true
+          })),
+          defaultUnpaidItem
+        ];
+
+        historyList.innerHTML = itemsToRender
+          .map((order) => {
+            const formattedTotal = "Rp" + Number(order.totalAmount).toLocaleString("id-ID");
+            const badgeHtml = order.paid
+              ? `<span class="status-pill-badge status-paid">Berhasil</span>`
+              : `<a href="pembayaran.html" class="status-pill-badge status-unpaid">Belum dibayar</a>`;
+
+            return `
+                <article class="history-card">
+                  <div class="history-kost-info">
+                    <h2>${order.kostName}</h2>
+                    <p>${order.startDate} • ${order.months} bulan</p>
+                  </div>
+                  <div class="history-price-info">
+                    <strong>${formattedTotal}</strong>
+                    <span>Status pembayaran</span>
+                  </div>
+                  <div class="history-status-col">
+                    ${badgeHtml}
+                  </div>
+                </article>
+              `;
+          })
+          .join("");
+      } catch (err) {
+        // Gunakan tampilan bawaan jika localStorage tidak tersedia
+      }
+    })();
+  </script>
+  <script src="js/app.js"></script>
+</body>
+
 </html>

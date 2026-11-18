@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Admin | KostKita</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/admin-style.css" />
+</head>
+
+<body class="admin-login-body">
+    <main class="admin-login-wrapper">
+        <div class="admin-login-card">
+            <h1>KostKita Admin</h1>
+            <p class="admin-login-subtitle">Masuk ke panel pengelolaan</p>
+
+            <form id="adminLoginForm" onsubmit="handleAdminLogin(event)">
+                <div class="admin-form-group">
+                    <label for="adminEmail">Email admin</label>
+                    <input type="email" id="adminEmail" placeholder="admin@kostkita.id" required />
+                </div>
+
+                <div class="admin-form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" placeholder="Masukkan password" required />
+                </div>
+
+                <button type="submit" class="btn-admin-login">Login Admin</button>
+            </form>
+
+            <p class="admin-login-note">Akses khusus administrator</p>
+        </div>
+    </main>
+
+    <script>
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById("adminEmail").value.trim();
+            sessionStorage.setItem("kostkita_admin_email", email || "admin@kostkita.id");
+            window.location.href = "admin.html";
+        }
+    </script>
+</body>
+
+</html>

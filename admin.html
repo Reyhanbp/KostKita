@@ -1,88 +1,558 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin | KostKita</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="container nav">
-        <a class="logo" href="index.html">Kost<span>Kita</span></a>
-        <nav class="navlinks">
-          <a href="index.html">Beranda</a><a href="cari-kost.html">Cari Kost</a
-          ><a href="tentang-kami.html">Tentang Kami</a
-          ><a href="bantuan.html">Bantuan</a
-          ><a class="btn outline" href="login.html">Masuk</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Admin | KostKita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin-style.css" />
+</head>
+
+<body class="admin-app-body">
+  <div class="admin-shell">
+    <!-- SIDEBAR HIJAU KIRI -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-top">
+        <div class="sidebar-brand">KostKita Admin</div>
+        <div class="sidebar-menu-label">MENU UTAMA</div>
+
+        <nav class="sidebar-nav" aria-label="Menu Utama Admin">
+          <button type="button" class="sidebar-link active" data-view="dashboard" data-title="Dashboard"
+            onclick="switchAdminView(this)">
+            Dashboard
+          </button>
+          <button type="button" class="sidebar-link" data-view="kost" data-title="Kelola Kost"
+            onclick="switchAdminView(this)">
+            Kelola Kost
+          </button>
+          <button type="button" class="sidebar-link" data-view="pengguna" data-title="Kelola Pengguna"
+            onclick="switchAdminView(this)">
+            Kelola Pengguna
+          </button>
+          <button type="button" class="sidebar-link" data-view="penyewaan" data-title="Kelola Penyewaan"
+            onclick="switchAdminView(this)">
+            Penyewaan
+          </button>
+          <button type="button" class="sidebar-link" data-view="pembayaran" data-title="Kelola Pembayaran"
+            onclick="switchAdminView(this)">
+            Pembayaran
+          </button>
         </nav>
       </div>
-    </header>
-    <main>
-      <section class="container">
-        <div class="page-head">
-          <span class="eyebrow">Pengelolaan website</span>
-          <h1>Dashboard Admin</h1>
-          <p class="muted">
-            Contoh tampilan CRUD sederhana untuk mengelola daftar kost.
-          </p>
+
+      <div class="sidebar-bottom">
+        <a href="login-admin.html" class="sidebar-logout" onclick="logoutAdmin()">
+          Keluar
+        </a>
+      </div>
+    </aside>
+
+    <!-- AREA KONTEN KANAN -->
+    <div class="admin-main-area">
+      <!-- HEADER ATAS -->
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button type="button" class="btn-mobile-menu" aria-label="Buka Menu" onclick="toggleSidebarMobile()">
+            ☰
+          </button>
+          <h1 id="adminHeaderTitle">Dashboard</h1>
         </div>
-        <div class="two-col">
-          <div class="panel">
-            <h3>Tambah / Edit Kost</h3>
-            <form id="adminForm">
-              <div class="field">
-                <label>Nama kost</label
-                ><input id="adminName" required placeholder="Nama kost" />
-              </div>
-              <div class="field">
-                <label>Lokasi</label
-                ><input id="adminLocation" required placeholder="Lokasi kost" />
-              </div>
-              <div class="field">
-                <label>Harga per bulan</label
-                ><input
-                  id="adminPrice"
-                  type="number"
-                  required
-                  placeholder="850000"
-                />
-              </div>
-              <button class="btn">Simpan Data</button>
-            </form>
-          </div>
-          <div class="panel">
-            <h3>Data kost</h3>
-            <div id="adminList">
-              <p class="muted small">
-                Kost Melati Residence · Sukolilo · Rp850.000
-                <button
-                  class="btn outline"
-                  onclick="this.parentElement.remove()"
-                >
-                  Hapus
-                </button>
-              </p>
+        <span class="admin-role-label">Administrator</span>
+      </header>
+
+      <main class="admin-content">
+        <!-- ================= 1. VIEW DASHBOARD ================= -->
+        <section id="view-dashboard" class="admin-view">
+          <p class="admin-view-subtitle">
+            Ringkasan aktivitas website KostKita.
+          </p>
+
+          <!-- 4 Kartu Statistik -->
+          <div class="admin-stats-grid">
+            <div class="admin-stat-card">
+              <strong id="statTotalKost">120</strong>
+              <span>Total Kost</span>
+            </div>
+
+            <div class="admin-stat-card">
+              <strong id="statTotalUsers">250</strong>
+              <span>Pengguna</span>
+            </div>
+
+            <div class="admin-stat-card">
+              <strong id="statTotalRentals">18</strong>
+              <span>Penyewaan</span>
+            </div>
+
+            <div class="admin-stat-card">
+              <strong id="statPendingVerify">5</strong>
+              <span>Menunggu Verifikasi</span>
             </div>
           </div>
-        </div>
-        <div class="notice">
-          Data admin pada versi ini hanya tersimpan sementara di halaman demo,
-          belum terhubung ke database.
-        </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <div class="container footer-row">
-        <div>
-          <div class="logo" style="color: white">Kost<span>Kita</span></div>
-          <p class="small">Temukan tempat tinggal nyaman dekat kampus.</p>
-        </div>
-        <div class="small">
-          © 2026 KostKita · Website pencarian kost mahasiswa
-        </div>
+
+          <!-- Kartu Aktivitas Terbaru -->
+          <div class="admin-card">
+            <h2>Aktivitas Terbaru</h2>
+
+            <div class="activity-list">
+              <div class="activity-row">
+                <strong>Kost Dahlia</strong>
+                <span>Pengajuan kost baru menunggu verifikasi</span>
+              </div>
+              <div class="activity-row">
+                <strong>Rina Amelia</strong>
+                <span>Pembayaran penyewaan diterima</span>
+              </div>
+              <div class="activity-row">
+                <strong>Kost Melati</strong>
+                <span>Data kost diperbarui</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 2. VIEW KELOLA KOST ================= -->
+        <section id="view-kost" class="admin-view hidden">
+          <p class="admin-view-subtitle">
+            Tambah, lihat, ubah, dan hapus data kost.
+          </p>
+
+          <div class="view-action-bar">
+            <button type="button" class="btn-admin-primary" onclick="openKostModal()">
+              + Tambah Kost
+            </button>
+          </div>
+
+          <div class="admin-table-card">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Nama Kost</th>
+                  <th>Pemilik</th>
+                  <th>Harga / bln</th>
+                  <th>Status</th>
+                  <th class="col-action">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="kostTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= 3. VIEW KELOLA PENGGUNA ================= -->
+        <section id="view-pengguna" class="admin-view hidden">
+          <p class="admin-view-subtitle">
+            Lihat dan kelola akun mahasiswa yang terdaftar.
+          </p>
+
+          <div class="admin-table-card">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Nama Pengguna</th>
+                  <th>Email</th>
+                  <th>No. HP</th>
+                  <th class="col-action">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="userTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= 4. VIEW KELOLA PENYEWAAN ================= -->
+        <section id="view-penyewaan" class="admin-view hidden">
+          <p class="admin-view-subtitle">
+            Periksa pengajuan dan perbarui status penyewaan.
+          </p>
+
+          <div class="admin-table-card">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Penyewa</th>
+                  <th>Nama Kost</th>
+                  <th>Tanggal</th>
+                  <th>Status</th>
+                  <th class="col-action">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="rentalTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= 5. VIEW KELOLA PEMBAYARAN ================= -->
+        <section id="view-pembayaran" class="admin-view hidden">
+          <p class="admin-view-subtitle">
+            Periksa pembayaran dan perbarui status transaksi.
+          </p>
+
+          <div class="admin-table-card">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Penyewa</th>
+                  <th>Metode</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th class="col-action">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="paymentTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- ================= MODAL KELOLA DATA ================= -->
+  <div class="admin-modal-backdrop hidden" id="adminModalBackdrop">
+    <div class="admin-modal-box">
+      <div class="admin-modal-header">
+        <h3 id="modalTitle">Edit Data</h3>
+        <button type="button" class="btn-close-modal" onclick="closeAdminModal()">
+          ✕
+        </button>
       </div>
-    </footer>
-    <script src="js/app.js"></script>
-  </body>
+      <div id="modalBodyContent"></div>
+    </div>
+  </div>
+
+  <script>
+    // Data awal sesuai tampilan panel admin KostKita
+    let kostData = [
+      { id: 1, name: "Kost Dahlia", owner: "Ibu Sari", price: "Rp1.450.000", status: "Aktif" },
+      { id: 2, name: "Kost Melati", owner: "Pak Budi", price: "Rp1.200.000", status: "Aktif" },
+      { id: 3, name: "Kost Mawar", owner: "Ibu Rina", price: "Rp1.100.000", status: "Pending" },
+      { id: 4, name: "Kost Anggrek", owner: "Pak Dedi", price: "Rp1.350.000", status: "Aktif" }
+    ];
+
+    let userData = [
+      { id: 1, name: "Rina Amelia", email: "rina@email.com", phone: "081234567890" },
+      { id: 2, name: "Dimas Putra", email: "dimas@email.com", phone: "081298765432" },
+      { id: 3, name: "Salsa Putri", email: "salsa@email.com", phone: "081377889900" },
+      { id: 4, name: "Fajar Ramadhan", email: "fajar@email.com", phone: "081355667788" }
+    ];
+
+    let rentalData = [
+      { id: 1, tenant: "Rina Amelia", kost: "Kost Dahlia", date: "01/12/26", status: "Diajukan" },
+      { id: 2, tenant: "Dimas Putra", kost: "Kost Melati", date: "15/01/27", status: "Disetujui" },
+      { id: 3, tenant: "Salsa Putri", kost: "Kost Mawar", date: "20/01/27", status: "Ditolak" }
+    ];
+
+    let paymentData = [
+      { id: 1, tenant: "Rina Amelia", method: "Transfer Bank", total: "Rp4.350.000", status: "Menunggu" },
+      { id: 2, tenant: "Dimas Putra", method: "QRIS", total: "Rp1.200.000", status: "Berhasil" },
+      { id: 3, tenant: "Salsa Putri", method: "E-Wallet", total: "Rp3.300.000", status: "Berhasil" }
+    ];
+
+    // Navigasi antar menu sidebar
+    function switchAdminView(btn) {
+      document.querySelectorAll(".sidebar-link").forEach((el) => el.classList.remove("active"));
+      btn.classList.add("active");
+
+      const targetView = btn.dataset.view;
+      document.getElementById("adminHeaderTitle").textContent = btn.dataset.title;
+
+      document.querySelectorAll(".admin-view").forEach((sec) => sec.classList.add("hidden"));
+      document.getElementById(`view-${targetView}`).classList.remove("hidden");
+
+      // Tutup sidebar otomatis di layar mobile
+      document.getElementById("adminSidebar").classList.remove("open");
+    }
+
+    function toggleSidebarMobile() {
+      document.getElementById("adminSidebar").classList.toggle("open");
+    }
+
+    function logoutAdmin() {
+      sessionStorage.removeItem("kostkita_admin_email");
+    }
+
+    // Render tabel Kelola Kost
+    function renderKostTable() {
+      const tbody = document.getElementById("kostTableBody");
+      tbody.innerHTML = kostData
+        .map((item) => {
+          const statusClass = item.status === "Aktif" ? "text-status-green" : "text-status-muted";
+          return `
+              <tr>
+                <td><strong>${item.name}</strong></td>
+                <td>${item.owner}</td>
+                <td>${item.price}</td>
+                <td><span class="${statusClass}">${item.status}</span></td>
+                <td class="col-action">
+                  <button type="button" class="action-link" onclick="openKostModal(${item.id})">Edit</button>
+                  <span class="action-dot">•</span>
+                  <button type="button" class="action-link" onclick="deleteKost(${item.id})">Hapus</button>
+                </td>
+              </tr>
+            `;
+        })
+        .join("");
+    }
+
+    // Render tabel Kelola Pengguna
+    function renderUserTable() {
+      const tbody = document.getElementById("userTableBody");
+      tbody.innerHTML = userData
+        .map(
+          (user) => `
+            <tr>
+              <td><strong>${user.name}</strong></td>
+              <td>${user.email}</td>
+              <td>${user.phone}</td>
+              <td class="col-action">
+                <button type="button" class="action-link" onclick="openUserModal(${user.id})">Edit</button>
+                <span class="action-dot">•</span>
+                <button type="button" class="action-link" onclick="deleteUser(${user.id})">Hapus</button>
+              </td>
+            </tr>
+          `
+        )
+        .join("");
+    }
+
+    // Render tabel Kelola Penyewaan
+    function renderRentalTable() {
+      const tbody = document.getElementById("rentalTableBody");
+      tbody.innerHTML = rentalData
+        .map(
+          (item) => `
+            <tr>
+              <td><strong>${item.tenant}</strong></td>
+              <td>${item.kost}</td>
+              <td>${item.date}</td>
+              <td>${item.status}</td>
+              <td class="col-action">
+                <button type="button" class="action-link" onclick="openRentalModal(${item.id})">Lihat / Ubah</button>
+              </td>
+            </tr>
+          `
+        )
+        .join("");
+    }
+
+    // Render tabel Kelola Pembayaran
+    function renderPaymentTable() {
+      const tbody = document.getElementById("paymentTableBody");
+      tbody.innerHTML = paymentData
+        .map((item) => {
+          const isPaid = item.status === "Berhasil";
+          const statusClass = isPaid ? "text-status-green" : "text-status-muted";
+          const actionText = isPaid ? "Lihat" : "Verifikasi";
+          return `
+              <tr>
+                <td><strong>${item.tenant}</strong></td>
+                <td>${item.method}</td>
+                <td>${item.total}</td>
+                <td><span class="${statusClass}">${item.status}</span></td>
+                <td class="col-action">
+                  <button type="button" class="action-link" onclick="openPaymentModal(${item.id})">${actionText}</button>
+                </td>
+              </tr>
+            `;
+        })
+        .join("");
+    }
+
+    // Modal Helpers
+    function openModal(title, htmlContent) {
+      document.getElementById("modalTitle").textContent = title;
+      document.getElementById("modalBodyContent").innerHTML = htmlContent;
+      document.getElementById("adminModalBackdrop").classList.remove("hidden");
+    }
+
+    function closeAdminModal() {
+      document.getElementById("adminModalBackdrop").classList.add("hidden");
+    }
+
+    // CRUD Kost
+    function openKostModal(id = null) {
+      const existing = kostData.find((k) => k.id === id) || {
+        name: "",
+        owner: "",
+        price: "Rp1.300.000",
+        status: "Aktif"
+      };
+
+      openModal(
+        id ? "Edit Data Kost" : "Tambah Kost Baru",
+        `
+          <form onsubmit="saveKost(event, ${id})">
+            <div class="admin-form-group">
+              <label>Nama Kost</label>
+              <input type="text" id="mKostName" value="${existing.name}" required />
+            </div>
+            <div class="admin-form-group">
+              <label>Pemilik</label>
+              <input type="text" id="mKostOwner" value="${existing.owner}" required />
+            </div>
+            <div class="admin-form-group">
+              <label>Harga / bln</label>
+              <input type="text" id="mKostPrice" value="${existing.price}" required />
+            </div>
+            <div class="admin-form-group">
+              <label>Status</label>
+              <select id="mKostStatus">
+                <option value="Aktif" ${existing.status === "Aktif" ? "selected" : ""}>Aktif</option>
+                <option value="Pending" ${existing.status === "Pending" ? "selected" : ""}>Pending</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-admin-login">Simpan Data Kost</button>
+          </form>
+        `
+      );
+    }
+
+    function saveKost(e, id) {
+      e.preventDefault();
+      const name = document.getElementById("mKostName").value.trim();
+      const owner = document.getElementById("mKostOwner").value.trim();
+      const price = document.getElementById("mKostPrice").value.trim();
+      const status = document.getElementById("mKostStatus").value;
+
+      if (id) {
+        const idx = kostData.findIndex((k) => k.id === id);
+        if (idx !== -1) kostData[idx] = { id, name, owner, price, status };
+      } else {
+        kostData.push({ id: Date.now(), name, owner, price, status });
+      }
+
+      renderKostTable();
+      closeAdminModal();
+    }
+
+    function deleteKost(id) {
+      if (!confirm("Hapus data kost ini?")) return;
+      kostData = kostData.filter((k) => k.id !== id);
+      renderKostTable();
+    }
+
+    // CRUD Pengguna
+    function openUserModal(id) {
+      const user = userData.find((u) => u.id === id);
+      if (!user) return;
+
+      openModal(
+        "Edit Data Pengguna",
+        `
+          <form onsubmit="saveUser(event, ${id})">
+            <div class="admin-form-group">
+              <label>Nama Pengguna</label>
+              <input type="text" id="mUserName" value="${user.name}" required />
+            </div>
+            <div class="admin-form-group">
+              <label>Email</label>
+              <input type="email" id="mUserEmail" value="${user.email}" required />
+            </div>
+            <div class="admin-form-group">
+              <label>No. HP</label>
+              <input type="text" id="mUserPhone" value="${user.phone}" required />
+            </div>
+            <button type="submit" class="btn-admin-login">Simpan Perubahan</button>
+          </form>
+        `
+      );
+    }
+
+    function saveUser(e, id) {
+      e.preventDefault();
+      const idx = userData.findIndex((u) => u.id === id);
+      if (idx !== -1) {
+        userData[idx].name = document.getElementById("mUserName").value.trim();
+        userData[idx].email = document.getElementById("mUserEmail").value.trim();
+        userData[idx].phone = document.getElementById("mUserPhone").value.trim();
+      }
+      renderUserTable();
+      closeAdminModal();
+    }
+
+    function deleteUser(id) {
+      if (!confirm("Hapus akun pengguna ini?")) return;
+      userData = userData.filter((u) => u.id !== id);
+      renderUserTable();
+    }
+
+    // Ubah Status Penyewaan
+    function openRentalModal(id) {
+      const item = rentalData.find((r) => r.id === id);
+      if (!item) return;
+
+      openModal(
+        "Detail & Status Penyewaan",
+        `
+          <p class="modal-info-line"><strong>Penyewa:</strong> ${item.tenant}</p>
+          <p class="modal-info-line"><strong>Nama Kost:</strong> ${item.kost}</p>
+          <p class="modal-info-line" style="margin-bottom:16px"><strong>Tanggal Masuk:</strong> ${item.date}</p>
+          <form onsubmit="saveRentalStatus(event, ${id})">
+            <div class="admin-form-group">
+              <label>Status Pengajuan</label>
+              <select id="mRentalStatus">
+                <option value="Diajukan" ${item.status === "Diajukan" ? "selected" : ""}>Diajukan</option>
+                <option value="Disetujui" ${item.status === "Disetujui" ? "selected" : ""}>Disetujui</option>
+                <option value="Ditolak" ${item.status === "Ditolak" ? "selected" : ""}>Ditolak</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-admin-login">Perbarui Status</button>
+          </form>
+        `
+      );
+    }
+
+    function saveRentalStatus(e, id) {
+      e.preventDefault();
+      const idx = rentalData.findIndex((r) => r.id === id);
+      if (idx !== -1) {
+        rentalData[idx].status = document.getElementById("mRentalStatus").value;
+      }
+      renderRentalTable();
+      closeAdminModal();
+    }
+
+    // Verifikasi Pembayaran
+    function openPaymentModal(id) {
+      const item = paymentData.find((p) => p.id === id);
+      if (!item) return;
+
+      const isPaid = item.status === "Berhasil";
+      openModal(
+        isPaid ? "Detail Transaksi Pembayaran" : "Verifikasi Pembayaran",
+        `
+          <p class="modal-info-line"><strong>Penyewa:</strong> ${item.tenant}</p>
+          <p class="modal-info-line"><strong>Metode:</strong> ${item.method}</p>
+          <p class="modal-info-line"><strong>Total:</strong> ${item.total}</p>
+          <p class="modal-info-line" style="margin-bottom:18px"><strong>Status Saat Ini:</strong> ${item.status}</p>
+          ${isPaid
+          ? `<button type="button" class="btn-admin-login" onclick="closeAdminModal()">Tutup</button>`
+          : `<button type="button" class="btn-admin-login" onclick="verifyPayment(${id})">Konfirmasi & Verifikasi Pembayaran</button>`
+        }
+        `
+      );
+    }
+
+    function verifyPayment(id) {
+      const idx = paymentData.findIndex((p) => p.id === id);
+      if (idx !== -1) {
+        paymentData[idx].status = "Berhasil";
+      }
+      renderPaymentTable();
+      closeAdminModal();
+    }
+
+    // Inisialisasi awal
+    renderKostTable();
+    renderUserTable();
+    renderRentalTable();
+    renderPaymentTable();
+  </script>
+</body>
+
 </html>

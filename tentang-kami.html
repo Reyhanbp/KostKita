@@ -1,57 +1,450 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tentang Kami | KostKita</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="container nav">
-        <a class="logo" href="index.html">Kost<span>Kita</span></a>
-        <nav class="navlinks">
-          <a href="index.html">Beranda</a><a href="cari-kost.html">Cari Kost</a
-          ><a href="tentang-kami.html">Tentang Kami</a
-          ><a href="bantuan.html">Bantuan</a
-          ><a class="btn outline" href="login.html">Masuk</a>
-        </nav>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tentang Kami | KostKita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/tentang-style.css" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="topbar">
+    <div class="container nav">
+      <a class="logo" href="index.html">KostKita</a>
+
+      <nav class="navlinks">
+        <a href="index.html">Beranda</a>
+        <a href="cari-kost.html">Cari Kost</a>
+        <a class="active" href="tentang-kami.html">Tentang Kami</a>
+        <a href="bantuan.html">Bantuan</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn-auth" href="login.html">Masuk / Daftar</a>
+        <a class="avatar-badge" href="login.html" aria-label="Profil Pengguna">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        </a>
       </div>
-    </header>
-    <main>
-      <section class="container">
-        <div class="page-head">
-          <span class="eyebrow">Mengenal kami</span>
-          <h1>Tentang KostKita</h1>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="about-hero">
+      <div class="container">
+        <div class="about-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          TENTANG KOSTKITA
         </div>
-        <div class="panel">
-          <h2>Solusi pencarian kost mahasiswa</h2>
-          <p class="muted" style="line-height: 1.9">
-            KostKita merupakan website yang dirancang untuk membantu mahasiswa
-            menemukan tempat tinggal di sekitar kampus. Melalui KostKita,
-            pengguna dapat melihat berbagai pilihan kost dari pemilik yang
-            berbeda, membandingkan harga, mengetahui fasilitas, dan mengajukan
-            penyewaan dengan lebih praktis.
-          </p>
-          <h2>Tujuan kami</h2>
-          <p class="muted" style="line-height: 1.9">
-            Mempermudah proses pencarian informasi kost serta membantu pemilik
-            kost memperkenalkan hunian yang tersedia kepada calon penyewa.
-          </p>
+
+        <h1>
+          Membantu Mahasiswa Merantau<br />
+          <span>Menemukan Rumah Keduanya</span>
+        </h1>
+        <p class="about-hero-sub">
+          Platform pencarian kost yang menghubungkan mahasiswa Indonesia dengan hunian nyaman, aman, transparan, dan
+          terjangkau di sekitar kampus impian.
+        </p>
+
+        <div class="about-cta-group">
+          <a href="cari-kost.html" class="btn-about-primary">Mulai Cari Kost</a>
+          <a href="#mitraSection" class="btn-about-secondary">Gabung Mitra Pemilik</a>
         </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <div class="container footer-row">
-        <div>
-          <div class="logo" style="color: white">Kost<span>Kita</span></div>
-          <p class="small">Temukan tempat tinggal nyaman dekat kampus.</p>
-        </div>
-        <div class="small">
-          © 2026 KostKita · Website pencarian kost mahasiswa
+
+        <!-- HERO SHOWCASE GRID -->
+        <div class="hero-showcase-grid">
+          <!-- Foto Komunitas Mahasiswa -->
+          <div class="showcase-photo-card">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1100"
+              alt="Mahasiswa belajar bersama di ruang komunal kost" />
+            <div class="showcase-caption-bar">
+              <div class="caption-left">
+                <span class="pulse-dot"></span>
+                <span>Batch 2026 · Melayani 25+ Kota Pendidikan</span>
+              </div>
+              <span class="caption-right">Seluruh Indonesia</span>
+            </div>
+          </div>
+
+          <!-- 2 Kartu Misi di Kanan -->
+          <div class="showcase-side-cards">
+            <div class="mission-light-card">
+              <div class="mission-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+              </div>
+              <h3>Misi Pemerataan Hunian</h3>
+              <p>
+                Kami berkomitmen menghadirkan akses informasi kost yang merata dan akurat bagi seluruh calon mahasiswa
+                dari berbagai daerah di Indonesia.
+              </p>
+            </div>
+
+            <div class="mission-green-card">
+              <span class="focus-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                FOKUS UTAMA KAMI
+              </span>
+              <p>
+                Memastikan proses mencari tempat tinggal jauh dari orang tua menjadi pengalaman yang menyenangkan, aman,
+                dan tanpa biaya tersembunyi.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
-    <script src="js/app.js"></script>
-  </body>
+    </section>
+
+    <!-- PRINSIP POKOK (3 KOLOM) -->
+    <section class="about-section container">
+      <div class="centered-head">
+        <span class="about-eyebrow">NILAI-NILAI KAMI</span>
+        <h2>Prinsip Pokok yang Selalu Kami Pegang</h2>
+        <p>
+          Setiap fitur yang kami bangun berlandaskan pada komitmen terhadap kebutuhan nyata mahasiswa perantau.
+        </p>
+      </div>
+
+      <div class="principles-grid">
+        <!-- Prinsip 1 -->
+        <article class="principle-card">
+          <div class="principle-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </div>
+          <h3>Transparansi 100%</h3>
+          <p>
+            Informasi harga sewa, fasilitas kamar, hingga peraturan kost ditampilkan apa adanya sesuai kondisi lapangan
+            tanpa biaya tersembunyi.
+          </p>
+          <div class="principle-pill">✓ Tanpa biaya admin tersembunyi</div>
+        </article>
+
+        <!-- Prinsip 2 -->
+        <article class="principle-card">
+          <div class="principle-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+          </div>
+          <h3>Keamanan &amp; Verifikasi</h3>
+          <p>
+            Setiap properti kost melalui tahap verifikasi lokasi dan kepemilikan oleh tim lapangan kami untuk menjamin
+            keamanan transaksi dan kenyamanan penghuni.
+          </p>
+          <div class="principle-pill">✓ Survei &amp; verifikasi fisik</div>
+        </article>
+
+        <!-- Prinsip 3 -->
+        <article class="principle-card">
+          <div class="principle-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="2" y="5" width="20" height="14" rx="2" />
+              <line x1="2" y1="10" x2="22" y2="10" />
+            </svg>
+          </div>
+          <h3>Ramah Kantong Mahasiswa</h3>
+          <p>
+            Tersedia beragam pilihan hunian mulai dari kost ekonomis hingga eksklusif yang disesuaikan dengan anggaran
+            bulanan mahasiswa.
+          </p>
+          <div class="principle-pill">✓ Harga langsung pemilik</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- STATISTIK KOMUNITAS KAMPUS (4 KOLOM) -->
+    <section class="community-stats-band">
+      <div class="container">
+        <div class="centered-head" style="margin-bottom: 28px">
+          <span class="about-eyebrow">JEJAK KAMI</span>
+          <h2>Tumbuh Bersama Komunitas Kampus</h2>
+        </div>
+
+        <div class="about-stats-grid">
+          <div class="about-stat-box">
+            <div class="big-num">15.000+</div>
+            <div class="stat-title">Mahasiswa Terbantu</div>
+            <p>Menemukan hunian ideal dekat kampus</p>
+          </div>
+
+          <div class="about-stat-box">
+            <div class="big-num">25+</div>
+            <div class="stat-title">Kota Pendidikan</div>
+            <p>Tersebar di berbagai pusat kampus Indonesia</p>
+          </div>
+
+          <div class="about-stat-box">
+            <div class="big-num">5.000+</div>
+            <div class="stat-title">Kamar Terverifikasi</div>
+            <p>Siap huni dengan fasilitas lengkap</p>
+          </div>
+
+          <div class="about-stat-box">
+            <div class="big-num">98.7%</div>
+            <div class="stat-title">Tingkat Kepuasan</div>
+            <p>Berdasarkan ulasan penyewa aktif</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERITA KAMI (2 KOLOM) -->
+    <section class="about-section container">
+      <div class="story-grid">
+        <!-- Kolom Kiri: Foto & Kartu Pengalaman Nyata -->
+        <div class="story-media-col">
+          <div class="story-photo-wrap">
+            <span class="story-photo-badge">Mahasiswa Rantau Indonesia</span>
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=900"
+              alt="Mahasiswa berjalan di area gerbang kampus" />
+          </div>
+
+          <div class="experience-callout">
+            <div class="exp-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+            </div>
+            <div>
+              <h4>Dari Pengalaman Nyata</h4>
+              <p>
+                Dibangun oleh mantan mahasiswa rantau yang paham betul susahnya mencari kost layak huni.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kolom Kanan: Narasi Cerita -->
+        <div class="story-text-col">
+          <span class="story-eyebrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
+            CERITA KAMI
+          </span>
+
+          <h2>Berawal dari Keringat Menelusuri Gang Sempit Kampus</h2>
+
+          <p>
+            Perjalanan KostKita dimulai dari pengalaman pribadi para pendirinya saat pertama kali merantau untuk kuliah.
+            Di bawah terik matahari dan hujan yang tiba-tiba turun, kami berjalan menyusuri gang-gang sempit sekitar
+            kampus demi mencari papan bertuliskan “Terima Kost” yang masih memiliki kamar kosong.
+          </p>
+          <p>
+            Banyak informasi yang hanya tersebar dari mulut ke mulut, foto kamar yang tidak sesuai kenyataan saat
+            didatangi langsung, hingga ketidakpastian harga sewa dan fasilitas yang sering kali membuat mahasiswa baru
+            maupun orang tua merasa cemas.
+          </p>
+          <p>
+            Melalui KostKita, kami menghadirkan solusi terpadu berbasis teknologi agar proses mencari tempat tinggal di
+            sekitar kampus menjadi jauh lebih mudah, transparan, dan terpercaya—cukup dari genggaman tangan sebelum kamu
+            melangkahkan kaki ke kota perantauan.
+          </p>
+
+          <div class="story-highlights">
+            <div class="mini-highlight">
+              <span class="check-circle">✓</span>
+              <div>
+                <strong>Hadir di 25+ Kota</strong>
+                <span>Tersebar di pusat pendidikan utama.</span>
+              </div>
+            </div>
+
+            <div class="mini-highlight">
+              <span class="check-circle">✓</span>
+              <div>
+                <strong>Gratis untuk Mahasiswa</strong>
+                <span>Tanpa komisi atau biaya perantara.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 PILAR KOMITMEN UNTUK MAHASISWA -->
+    <section class="about-section container" style="padding-top: 16px">
+      <div class="centered-head">
+        <span class="about-eyebrow">UNTUK MAHASISWA</span>
+        <h2>4 Pilar Komitmen untuk Mahasiswa</h2>
+        <p>
+          Standar pelayanan yang kami terapkan demi menghadirkan ketenangan bagi mahasiswa dan keluarga.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <article class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </div>
+          <h3>Empati Penyewa</h3>
+          <p>
+            Memahami kebutuhan mahasiswa dari luar kota yang baru pertama kali tinggal mandiri jauh dari keluarga.
+          </p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+          </div>
+          <h3>Integritas Data</h3>
+          <p>
+            Semua spesifikasi kamar, ukuran, foto, dan aturan kost diperiksa secara berkala agar tetap akurat dan
+            relevan.
+          </p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </div>
+          <h3>Respon Cepat 24 Jam</h3>
+          <p>
+            Tim layanan pelanggan siap membantu kendala survei, booking, maupun pertanyaan seputar hunian kapan saja.
+          </p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <h3>Akses Tanpa Diskriminasi</h3>
+          <p>
+            Membuka peluang seluas-luasnya bagi seluruh mahasiswa dari berbagai latar belakang untuk memperoleh hunian
+            layak.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- BANNER CTA MITRA PEMILIK KOST -->
+    <section class="container cta-banner-section" id="mitraSection">
+      <div class="mitra-banner">
+        <div class="mitra-content">
+          <span class="mitra-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M3 21h18" />
+              <path d="M5 21V7l8-4v18" />
+              <path d="M19 21V11l-6-4" />
+            </svg>
+            MITRA JURAGAN KOST
+          </span>
+
+          <h2>Punya Properti Kost Dekat Kampus?</h2>
+          <p>
+            Bergabunglah bersama ribuan pemilik kost lainnya. Kelola kamar kosong lebih mudah, jangkau ribuan calon
+            penyewa mahasiswa terverifikasi, dan tingkatkan okupansi hunian Anda secara optimal.
+          </p>
+
+          <div class="mitra-perks">
+            <span>✓ Gratis pendaftaran properti</span>
+            <span>✓ Kelola kamar lebih mudah</span>
+            <span>✓ Pembayaran terjamin aman</span>
+          </div>
+        </div>
+
+        <div class="mitra-actions">
+          <a href="login.html" class="btn-mitra-white">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+            Daftar Jadi Mitra Pemilik Kost
+          </a>
+          <a href="bantuan.html#contactSection" class="link-mitra-guide">
+            Pelajari Cara Kerja Mitra →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER 4 KOLOM -->
+  <footer class="footer-light">
+    <div class="container footer-grid-4">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">KostKita</a>
+        <p>Solusi pencarian kost terpercaya dan terjangkau untuk mahasiswa Indonesia.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kampus Populer</h4>
+        <ul>
+          <li><a href="cari-kost.html?q=UGM">Kost Dekat UGM</a></li>
+          <li><a href="cari-kost.html?q=UI">Kost Dekat UI</a></li>
+          <li><a href="cari-kost.html?q=ITB">Kost Dekat ITB</a></li>
+          <li><a href="cari-kost.html?q=UB">Kost Dekat UB</a></li>
+          <li><a href="cari-kost.html?q=Undip">Kost Dekat Undip</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Bantuan &amp; Panduan</h4>
+        <ul>
+          <li><a href="bantuan.html">Pusat Bantuan</a></li>
+          <li><a href="tentang-kami.html">Syarat &amp; Ketentuan</a></li>
+          <li><a href="tentang-kami.html">Kebijakan Privasi</a></li>
+          <li><a href="bantuan.html#faqSection">Panduan Sewa Aman</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Hubungi Kami</h4>
+        <ul class="contact-list">
+          <li>Email: halo@kostkita.id</li>
+          <li>WhatsApp: +62 812-3456-7890</li>
+          <li>Senin - Minggu (08.00 - 21.00 WIB)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom-bar">
+      <span>© 2026 KostKita. Hak cipta dilindungi undang-undang.</span>
+      <span>Indonesia Terkoneksi Mahasiswa</span>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+
 </html>

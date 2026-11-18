@@ -1,74 +1,659 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bantuan | KostKita</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="container nav">
-        <a class="logo" href="index.html">Kost<span>Kita</span></a>
-        <nav class="navlinks">
-          <a href="index.html">Beranda</a><a href="cari-kost.html">Cari Kost</a
-          ><a href="tentang-kami.html">Tentang Kami</a
-          ><a href="bantuan.html">Bantuan</a
-          ><a class="btn outline" href="login.html">Masuk</a>
-        </nav>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pusat Bantuan | KostKita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/bantuan.css" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="topbar">
+    <div class="container nav">
+      <a class="logo" href="index.html">KostKita</a>
+
+      <nav class="navlinks">
+        <a href="index.html">Beranda</a>
+        <a href="cari-kost.html">Cari Kost</a>
+        <a href="tentang-kami.html">Tentang Kami</a>
+        <a class="active" href="bantuan.html">Bantuan</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn-auth" href="login.html">Masuk / Daftar</a>
+        <a class="avatar-badge" href="login.html" aria-label="Profil Pengguna">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        </a>
       </div>
-    </header>
-    <main>
-      <section class="container">
-        <div class="page-head">
-          <span class="eyebrow">Pusat bantuan</span>
-          <h1>Ada yang bisa kami bantu?</h1>
-          <p class="muted">
-            Temukan jawaban dari pertanyaan umum seputar KostKita.
-          </p>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO & PENCARIAN SOLUSI -->
+    <section class="help-hero">
+      <div class="container">
+        <div class="help-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+          PUSAT BANTUAN &amp; PANDUAN
         </div>
-        <div class="grid">
-          <div class="panel">
-            <h3>Bagaimana cara mencari kost?</h3>
-            <p class="muted">
-              Buka menu Cari Kost, masukkan lokasi atau kata kunci, lalu gunakan
-              filter harga.
-            </p>
-          </div>
-          <div class="panel">
-            <h3>Bagaimana melihat detail kost?</h3>
-            <p class="muted">
-              Pilih tombol Lihat Detail pada kost yang kamu minati.
-            </p>
-          </div>
-          <div class="panel">
-            <h3>Bagaimana mengajukan sewa?</h3>
-            <p class="muted">
-              Masuk ke akun, buka detail kost, lalu pilih Ajukan Sewa dan ikuti
-              langkah berikutnya.
-            </p>
+
+        <h1>Ada yang Bisa Kami Bantu?</h1>
+        <p class="help-hero-sub">
+          Temukan jawaban cepat seputar pemesanan kost, jadwal survei, refund, dan keamanan transaksi mahasiswa tanpa
+          cemas.
+        </p>
+
+        <!-- SEARCH CARD -->
+        <div class="help-search-wrap">
+          <form class="help-search-box" onsubmit="handleHelpSearch(event)">
+            <div class="help-search-input">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <input type="text" id="helpSearchInput"
+                placeholder="Cari kendala atau topik (contoh: cara pembatalan, refund, deposit)..." />
+            </div>
+            <button type="submit" class="btn-help-search">Cari Solusi ›</button>
+          </form>
+
+          <div class="help-topics-row">
+            <span class="topics-label">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg>
+              Topik Populer:
+            </span>
+            <button type="button" class="topic-chip" data-topic="booking">Cara Booking</button>
+            <button type="button" class="topic-chip" data-topic="jadwal">Jadwal Masuk</button>
+            <button type="button" class="topic-chip" data-topic="deposit">Deposit Kamar</button>
+            <button type="button" class="topic-chip" data-topic="survei">Survei Kost</button>
+            <button type="button" class="topic-chip" data-topic="pemilik">Kontak Pemilik</button>
           </div>
         </div>
-        <div class="panel" style="margin-top: 22px">
-          <h3>Hubungi kami</h3>
-          <p class="muted">Email: bantuan@kostkita.example</p>
-          <p class="small muted">
-            Kontak ini merupakan contoh untuk keperluan demo website.
-          </p>
+
+        <!-- 4 TRUST BADGES -->
+        <div class="trust-grid">
+          <div class="trust-card">
+            <div class="trust-icon">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+            </div>
+            <div>
+              <div class="trust-title">100% Escrow</div>
+              <div class="trust-desc">Uang aman sampai check-in</div>
+            </div>
+          </div>
+
+          <div class="trust-card">
+            <div class="trust-icon">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+                <path d="m9 16 2 2 4-4" />
+              </svg>
+            </div>
+            <div>
+              <div class="trust-title">Gratis Survei</div>
+              <div class="trust-desc">Cek fisik tanpa pungutan</div>
+            </div>
+          </div>
+
+          <div class="trust-card">
+            <div class="trust-icon">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+            </div>
+            <div>
+              <div class="trust-title">Harga Kampus</div>
+              <div class="trust-desc">0% biaya administrasi</div>
+            </div>
+          </div>
+
+          <div class="trust-card">
+            <div class="trust-icon">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
+            <div>
+              <div class="trust-title">&lt; 2 Jam Respon</div>
+              <div class="trust-desc">Admin tanggap darurat</div>
+            </div>
+          </div>
         </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <div class="container footer-row">
+      </div>
+    </section>
+
+    <!-- KATEGORI TOPIK -->
+    <section class="help-section container">
+      <div class="category-head">
         <div>
-          <div class="logo" style="color: white">Kost<span>Kita</span></div>
-          <p class="small">Temukan tempat tinggal nyaman dekat kampus.</p>
+          <span class="help-eyebrow">KATEGORI TOPIK</span>
+          <h2>Pilih Sesuai Kebutuhanmu</h2>
         </div>
-        <div class="small">
-          © 2026 KostKita · Website pencarian kost mahasiswa
+        <p class="category-note">
+          Panduan langkah-demi-langkah disusun ringkas untuk mempercepat proses pencarian kamar baru Anda.
+        </p>
+      </div>
+
+      <div class="category-grid">
+        <!-- Card 1 -->
+        <a href="#faqSection" class="cat-card" onclick="filterFaqByTopic('booking')">
+          <div class="cat-icon icon-green">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+              <path d="M6 12v5c3 3 9 3 12 0v-5" />
+            </svg>
+          </div>
+          <span class="cat-tag tag-green">PANDUAN PENYEWA</span>
+          <h3>Panduan Mahasiswa</h3>
+          <p>
+            Alur sewa kamar pribadi, aturan tata tertib kost, dan cara verifikasi kartu tanda mahasiswa (KTM).
+          </p>
+          <div class="cat-footer">
+            <span>8 Artikel</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="#faqSection" class="cat-card" onclick="filterFaqByTopic('deposit')">
+          <div class="cat-icon icon-indigo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1">
+              <rect x="2" y="5" width="20" height="14" rx="2" />
+              <line x1="2" y1="10" x2="22" y2="10" />
+            </svg>
+          </div>
+          <span class="cat-tag tag-indigo">KEUANGAN &amp; TRANSAKSI</span>
+          <h3>Pembayaran &amp; Biaya</h3>
+          <p>
+            Ketentuan uang deposit, mekanisme transfer rekening bersama, serta perlindungan jaminan uang kembali.
+          </p>
+          <div class="cat-footer">
+            <span>12 Artikel</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="#faqSection" class="cat-card" onclick="filterFaqByTopic('foto')">
+          <div class="cat-icon icon-coral">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1">
+              <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+              <line x1="12" y1="9" x2="12" y2="13" />
+              <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+          </div>
+          <span class="cat-tag tag-coral">BANTUAN MENDESAK</span>
+          <h3>Kendala di Lapangan</h3>
+          <p>
+            Kamar tidak sesuai foto katalog, kunci belum diserahkan, atau jadwal kedatangan mendadak bergeser.
+          </p>
+          <div class="cat-footer">
+            <span>6 Panduan Cepat</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="#contactSection" class="cat-card">
+          <div class="cat-icon icon-green">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1">
+              <path d="M3 21h18" />
+              <path d="M5 21V7l8-4v18" />
+              <path d="M19 21V11l-6-4" />
+              <path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01" />
+            </svg>
+          </div>
+          <span class="cat-tag tag-green">MITRA JURAGAN</span>
+          <h3>Panduan Pemilik</h3>
+          <p>
+            Cara mendaftarkan kamar kosong, verifikasi surat kepemilikan, jadwal pencairan sewa, dan syarat foto
+            properti.
+          </p>
+          <div class="cat-footer">
+            <span>10 Artikel</span>
+            <span>→</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ & ALUR AMAN SEWA (2 KOLOM) -->
+    <section class="help-section container" id="faqSection">
+      <div class="faq-flow-grid">
+        <!-- KOLOM KIRI: FAQ -->
+        <div>
+          <span class="help-eyebrow">PERTANYAAN TERBANYAK</span>
+          <h2 class="section-title">FAQ Mahasiswa Perantau</h2>
+          <p class="section-sub">
+            Semua hal yang sering ditanyakan sebelum melakukan transaksi dan survei kamar.
+          </p>
+
+          <div class="faq-list" id="faqList">
+            <!-- FAQ 1 -->
+            <div class="faq-item active" data-keywords="foto tidak sesuai kamar katalog batal refund escrow">
+              <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                <span class="q-left">
+                  <span class="q-dot"></span>
+                  Bagaimana jika kamar kost tidak sesuai dengan foto di aplikasi?
+                </span>
+                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Kamu berhak mengajukan klaim pembatalan sebelum menekan tombol konfirmasi masuk kamar. Dana sewa yang
+                tersimpan di rekening Escrow KostKita akan dikembalikan 100% tanpa potongan setelah tim kami
+                memverifikasi laporan foto lapangan.
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item" data-keywords="survei lokasi langsung jadwal cek fisik gratis">
+              <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                <span class="q-left">
+                  <span class="q-dot"></span>
+                  Apakah saya bisa survei lokasi langsung sebelum membayar?
+                </span>
+                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Bisa. Pilih jadwal survei pada halaman detail kost untuk membuat janji temu dengan pemilik atau tim
+                pendamping lapangan KostKita secara gratis tanpa biaya komitmen.
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item" data-keywords="pembayaran diteruskan pemilik kost escrow pencairan deposit">
+              <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                <span class="q-left">
+                  <span class="q-dot"></span>
+                  Kapan pembayaran diteruskan ke pemilik kost?
+                </span>
+                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Dana sewa akan ditahan sementara di sistem Escrow KostKita dan baru dicairkan ke pemilik kost maksimal
+                1×24 jam setelah kamu tiba di lokasi dan mengonfirmasi kondisi kamar sesuai kontrak.
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item" data-keywords="berapa lama proses konfirmasi pemilik kost jadwal masuk booking">
+              <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                <span class="q-left">
+                  <span class="q-dot"></span>
+                  Berapa lama proses konfirmasi dari pemilik kost?
+                </span>
+                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Rata-rata pemilik kost merespons pengajuan sewa dalam waktu 30 menit hingga maksimal 2 jam. Jika
+                melewati batas waktu, admin kami akan membantu menghubungkan atau mencarikan opsi kamar serupa.
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item" data-keywords="biaya administrasi tambahan mahasiswa gratis deposit">
+              <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                <span class="q-left">
+                  <span class="q-dot"></span>
+                  Apakah ada biaya administrasi tambahan untuk mahasiswa?
+                </span>
+                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Tidak ada. Seluruh pencarian, penjadwalan survei, hingga transaksi sewa bagi mahasiswa bebas biaya
+                platform (0% biaya admin). Kamu hanya membayar harga sewa sesuai yang tertera pada halaman kost.
+              </div>
+            </div>
+          </div>
+
+          <div id="faqEmptyNote" class="faq-empty-note" style="display: none">
+            Tidak menemukan pertanyaan yang cocok dengan kata kunci tersebut.
+            <button type="button" onclick="resetHelpSearch()">Tampilkan semua FAQ</button>
+          </div>
+        </div>
+
+        <!-- KOLOM KANAN: ALUR AMAN SEWA & FOTO VERIFIKASI -->
+        <div class="flow-column">
+          <div class="flow-card">
+            <div class="flow-head">
+              <h3>Alur Aman Sewa KostKita</h3>
+              <span class="proteksi-badge">100% Proteksi</span>
+            </div>
+
+            <div class="steps-list">
+              <div class="step-item">
+                <span class="step-num">1</span>
+                <div>
+                  <h4>Pilih &amp; Ajukan Booking</h4>
+                  <p>Cek rincian kamar, review penghuni, lalu ajukan tanggal mulai nge-kost.</p>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <span class="step-num">2</span>
+                <div>
+                  <h4>Pembayaran ke Escrow</h4>
+                  <p>Uang disimpan aman di rekening KostKita, bukan langsung ke pemilik.</p>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <span class="step-num">3</span>
+                <div>
+                  <h4>Cek Fisik Saat Tiba</h4>
+                  <p>Pastikan fasilitas kamar sesuai kontrak baru setelah laporan sah.</p>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <span class="step-num">4</span>
+                <div>
+                  <h4>Pencairan ke Pemilik</h4>
+                  <p>Setelah Anda konfirmasi nyaman, dana disalurkan ke pemilik kost.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="campus-support-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span>
+                Didukung oleh 15+ perguruan tinggi di Yogyakarta, Jakarta, dan Bandung untuk kenyamanan mahasiswa baru.
+              </span>
+            </div>
+          </div>
+
+          <!-- KARTU FOTO VERIFIKASI -->
+          <div class="verified-photo-card">
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=900"
+              alt="Kamar terverifikasi KostKita" />
+            <div class="photo-overlay">
+              <span class="photo-eyebrow">JAMINAN KUALITAS FISIK</span>
+              <p>Semua kamar kandidat terverifikasi layak oleh tim lapangan KostKita</p>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
-    <script src="js/app.js"></script>
-  </body>
+    </section>
+
+    <!-- HUBUNGI KAMI LANGSUNG -->
+    <section class="container" id="contactSection">
+      <div class="contact-wrapper">
+        <div class="contact-header">
+          <span class="help-eyebrow">LAYANAN PELANGGAN</span>
+          <h2>Belum Menemukan Solusi? Hubungi Kami Langsung</h2>
+          <p>
+            Tim pendamping mahasiswa siap menjawab keraguan Anda. Kami beroperasi setiap hari untuk memastikan
+            pengalaman sewa kost berjalan lancar.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- WhatsApp -->
+          <div class="contact-card">
+            <div class="contact-icon icon-green">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+            </div>
+            <span class="status-pill status-online">• Online Sekarang</span>
+            <h3>WhatsApp Support</h3>
+            <p class="contact-desc">
+              Chat langsung dengan admin mahasiswa untuk bantuan darurat atau kendala transaksi booking.
+            </p>
+            <div class="contact-meta">
+              <strong>Senin - Minggu</strong>
+              <span>08.00 - 22.00 WIB</span>
+            </div>
+            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="btn-contact btn-wa">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+              Hubungi WhatsApp
+            </a>
+          </div>
+
+          <!-- Email -->
+          <div class="contact-card">
+            <div class="contact-icon icon-indigo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+            </div>
+            <span class="status-pill status-indigo">Respon Resmi</span>
+            <h3>Email Bantuan</h3>
+            <p class="contact-desc">
+              Untuk kebutuhan surat formal, komplain bukti transfer, atau pengajuan kerja sama pemilik kost.
+            </p>
+            <div class="contact-meta">
+              <strong class="email-highlight">halo@kostkita.id</strong>
+              <span>Rata-rata respon dalam 1-2 jam kerja</span>
+            </div>
+            <a href="mailto:halo@kostkita.id" class="btn-contact btn-email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+              Kirim Email
+            </a>
+          </div>
+
+          <!-- Komunitas -->
+          <div class="contact-card">
+            <div class="contact-icon icon-coral">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <span class="status-pill status-coral">15.000+ Anggota</span>
+            <h3>Komunitas Mahasiswa</h3>
+            <p class="contact-desc">
+              Tanya tanya sesama mahasiswa seputar info lingkungan kost, teman sekamar, hingga transportasi umum.
+            </p>
+            <div class="contact-meta">
+              <strong>Diskusi Aktif 24/7</strong>
+              <span>UGM, UI, ITB, UB, Undip &amp; lainnya</span>
+            </div>
+            <a href="tentang-kami.html" class="btn-contact btn-forum">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              </svg>
+              Gabung Forum Kampus
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEEDBACK BAR -->
+    <section class="container feedback-section">
+      <div class="feedback-box" id="feedbackBox">
+        <div>
+          <h4>Apakah artikel ini menjawab pertanyaanmu?</h4>
+          <p>Bantu kami meningkatkan kualitas layanan informasi KostKita.</p>
+        </div>
+        <div class="feedback-actions" id="feedbackActions">
+          <button type="button" class="btn-fb btn-fb-yes" onclick="submitFeedback(true)">
+            👍 Ya, Sangat Jelas
+          </button>
+          <button type="button" class="btn-fb btn-fb-no" onclick="submitFeedback(false)">
+            👎 Belum Cukup
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-light">
+    <div class="container footer-grid-4">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">KostKita</a>
+        <p>Solusi pencarian kost terpercaya dan terjangkau untuk mahasiswa Indonesia.</p>
+      </div>
+  
+      <div class="footer-col">
+        <h4>Kampus Populer</h4>
+        <ul>
+          <li><a href="cari-kost.html?q=UGM">Kost Dekat UGM</a></li>
+          <li><a href="cari-kost.html?q=UI">Kost Dekat UI</a></li>
+          <li><a href="cari-kost.html?q=ITB">Kost Dekat ITB</a></li>
+          <li><a href="cari-kost.html?q=UB">Kost Dekat UB</a></li>
+          <li><a href="cari-kost.html?q=Undip">Kost Dekat Undip</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-col">
+        <h4>Bantuan & Panduan</h4>
+        <ul>
+          <li><a href="bantuan.html">Pusat Bantuan</a></li>
+          <li><a href="tentang-kami.html">Syarat & Ketentuan</a></li>
+          <li><a href="tentang-kami.html">Kebijakan Privasi</a></li>
+          <li><a href="bantuan.html">Panduan Sewa Aman</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-col">
+        <h4>Hubungi Kami</h4>
+        <ul class="contact-list">
+          <li>Email: halo@kostkita.id</li>
+          <li>WhatsApp: +62 812-3456-7890</li>
+          <li>Senin - Minggu (08.00 - 21.00 WIB)</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="container footer-bottom-bar">
+      <span>© 2026 KostKita. Hak cipta dilindungi undang-undang.</span>
+      <span>Indonesia Terkoneksi Mahasiswa</span>
+    </div>
+  </footer>
+
+
+  <script>
+    // Accordion FAQ
+    function toggleFaq(btn) {
+      const item = btn.closest(".faq-item");
+      const isOpen = item.classList.contains("active");
+
+      document.querySelectorAll(".faq-item").forEach((el) => {
+        el.classList.remove("active");
+      });
+
+      if (!isOpen) {
+        item.classList.add("active");
+      }
+    }
+
+    // Filter FAQ berdasarkan pencarian
+    const helpSearchInput = document.getElementById("helpSearchInput");
+    const faqItems = Array.from(document.querySelectorAll(".faq-item"));
+    const faqEmptyNote = document.getElementById("faqEmptyNote");
+
+    function filterFaqByKeyword(rawKeyword) {
+      const keyword = rawKeyword.trim().toLowerCase();
+      let visible = 0;
+
+      faqItems.forEach((item) => {
+        const text = (item.textContent + " " + item.dataset.keywords).toLowerCase();
+        if (!keyword || text.includes(keyword)) {
+          item.style.display = "block";
+          if (keyword && visible === 0) {
+            item.classList.add("active");
+          }
+          visible++;
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      faqEmptyNote.style.display = visible === 0 ? "block" : "none";
+    }
+
+    function handleHelpSearch(e) {
+      e.preventDefault();
+      filterFaqByKeyword(helpSearchInput.value);
+      document.getElementById("faqSection").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function filterFaqByTopic(topic) {
+      helpSearchInput.value = topic;
+      filterFaqByKeyword(topic);
+    }
+
+    function resetHelpSearch() {
+      helpSearchInput.value = "";
+      filterFaqByKeyword("");
+    }
+
+    // Klik topik populer di hero
+    document.querySelectorAll(".topic-chip").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const topic = chip.dataset.topic;
+        helpSearchInput.value = chip.textContent;
+        filterFaqByKeyword(topic);
+        document.getElementById("faqSection").scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    // Feedback interaktif
+    function submitFeedback(isHelpful) {
+      const actions = document.getElementById("feedbackActions");
+      actions.innerHTML = isHelpful
+        ? '<span class="feedback-thanks">✓ Terima kasih! Masukanmu sangat membantu tim KostKita.</span>'
+        : '<span class="feedback-thanks">✓ Terima kasih! Tim kami akan segera menyempurnakan panduan ini.</span>';
+    }
+  </script>
+  <script src="js/app.js"></script>
+</body>
+
 </html>

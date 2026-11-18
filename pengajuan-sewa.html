@@ -1,76 +1,300 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pengajuan Sewa | KostKita</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="container nav">
-        <a class="logo" href="index.html">Kost<span>Kita</span></a>
-        <nav class="navlinks">
-          <a href="index.html">Beranda</a><a href="cari-kost.html">Cari Kost</a
-          ><a href="tentang-kami.html">Tentang Kami</a
-          ><a href="bantuan.html">Bantuan</a
-          ><a class="btn outline" href="login.html">Masuk</a>
-        </nav>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajukan Sewa | KostKita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pengajuan-style.css" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="topbar">
+    <div class="container nav">
+      <a class="logo" href="index.html">KostKita</a>
+
+      <nav class="navlinks">
+        <a href="index.html">Beranda</a>
+        <a href="cari-kost.html">Cari Kost</a>
+        <a href="tentang-kami.html">Tentang Kami</a>
+        <a href="bantuan.html">Bantuan</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn-auth" href="riwayat-sewa.html">Akun Saya</a>
       </div>
-    </header>
-    <main>
-      <section class="container">
-        <div class="form-wrap">
-          <div class="form-card">
-            <span class="eyebrow">Langkah penyewaan</span>
-            <h1>Form Pengajuan Sewa</h1>
-            <p class="muted">
-              Lengkapi informasi berikut untuk mengajukan penyewaan kost.
-            </p>
-            <form id="rentForm">
-              <div class="field">
-                <label>Nama lengkap</label
-                ><input required placeholder="Nama penyewa" />
+    </div>
+  </header>
+
+  <main class="rent-page-main">
+    <div class="container">
+      <!-- ================= LANGKAH 1: FORM AJUKAN SEWA ================= -->
+      <section id="stepFormSection">
+        <div class="rent-page-header">
+          <h1>Ajukan Sewa</h1>
+          <p class="rent-subtitle">
+            Lengkapi data berikut untuk mengajukan penyewaan Kost Dahlia.
+          </p>
+        </div>
+
+        <div class="rent-layout">
+          <!-- KARTU FORM KIRI -->
+          <div class="rent-form-card">
+            <form id="rentForm" onsubmit="goToConfirmation(event)">
+              <div class="rent-field">
+                <label for="tenantName">Nama lengkap</label>
+                <input type="text" id="tenantName" placeholder="Nama sesuai identitas" required />
               </div>
-              <div class="field">
-                <label>Nomor HP</label
-                ><input required type="tel" placeholder="08xxxxxxxxxx" />
+
+              <div class="rent-field">
+                <label for="tenantEmail">Email</label>
+                <input type="email" id="tenantEmail" placeholder="nama@email.com" required />
               </div>
-              <div class="field">
-                <label>Kost yang dipilih</label
-                ><input value="Kost Melati Residence" readonly />
+
+              <div class="rent-row-2">
+                <div class="rent-field">
+                  <label for="tenantPhone">Nomor HP</label>
+                  <input type="tel" id="tenantPhone" placeholder="08xxxxxxxxxx" required />
+                </div>
+
+                <div class="rent-field">
+                  <label for="startDate">Tanggal mulai sewa</label>
+                  <input type="date" id="startDate" value="2026-12-01" required />
+                </div>
               </div>
-              <div class="field">
-                <label>Tanggal mulai sewa</label><input type="date" required />
+
+              <div class="rent-field">
+                <label>Durasi sewa</label>
+                <input type="hidden" id="durationMonths" value="3" />
+                <div class="duration-grid" id="durationGrid">
+                  <button type="button" class="duration-option" data-months="1" onclick="selectDuration(this)">
+                    1 bulan
+                  </button>
+                  <button type="button" class="duration-option active" data-months="3" onclick="selectDuration(this)">
+                    3 bulan
+                  </button>
+                  <button type="button" class="duration-option" data-months="6" onclick="selectDuration(this)">
+                    6 bulan
+                  </button>
+                  <button type="button" class="duration-option" data-months="12" onclick="selectDuration(this)">
+                    12 bulan
+                  </button>
+                </div>
               </div>
-              <div class="field">
-                <label>Durasi sewa</label
-                ><select>
-                  <option>1 bulan</option>
-                  <option>3 bulan</option>
-                  <option>6 bulan</option>
-                  <option>12 bulan</option>
-                </select>
+
+              <div class="rent-field">
+                <label for="ownerNote">Catatan untuk pemilik (opsional)</label>
+                <input type="text" id="ownerNote" placeholder="Tulis pesan tambahan" />
               </div>
-              <button class="btn" style="width: 100%">
-                Lanjut ke Pembayaran
-              </button>
+
+              <button type="submit" class="btn-rent-primary">Lanjutkan</button>
             </form>
           </div>
+
+          <!-- KARTU RINGKASAN KOST KANAN -->
+          <aside class="rent-summary-card">
+            <h2>Ringkasan Kost</h2>
+            <div class="summary-kost-name">Kost Dahlia</div>
+            <div class="summary-kost-price">Rp1.450.000 / bulan</div>
+            <p class="summary-kost-loc">Lokasi: dekat kampus</p>
+          </aside>
         </div>
       </section>
-    </main>
-    <footer class="footer">
-      <div class="container footer-row">
-        <div>
-          <div class="logo" style="color: white">Kost<span>Kita</span></div>
-          <p class="small">Temukan tempat tinggal nyaman dekat kampus.</p>
+
+      <!-- ================= LANGKAH 2: KONFIRMASI PENYEWAAN ================= -->
+      <section id="stepConfirmSection" class="hidden">
+        <div class="rent-page-header">
+          <h1>Konfirmasi Penyewaan</h1>
+          <p class="rent-subtitle">
+            Periksa kembali detail pesanan sebelum melanjutkan pembayaran.
+          </p>
         </div>
-        <div class="small">
-          © 2026 KostKita · Website pencarian kost mahasiswa
+
+        <div class="rent-layout">
+          <!-- KOLOM KIRI: DETAIL PENYEWAAN & TOTAL -->
+          <div>
+            <div class="confirm-detail-card">
+              <h2>Detail Penyewaan</h2>
+
+              <div class="confirm-rows">
+                <div class="confirm-row">
+                  <span>Nama kost</span>
+                  <strong>Kost Dahlia</strong>
+                </div>
+                <div class="confirm-row">
+                  <span>Nama penyewa</span>
+                  <strong id="confirmTenantName">Nama Mahasiswa</strong>
+                </div>
+                <div class="confirm-row">
+                  <span>Tanggal masuk</span>
+                  <strong id="confirmStartDate">1 Desember 2026</strong>
+                </div>
+                <div class="confirm-row">
+                  <span>Durasi sewa</span>
+                  <strong id="confirmDuration">3 bulan</strong>
+                </div>
+                <div class="confirm-row">
+                  <span>Harga per bulan</span>
+                  <strong>Rp1.450.000</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- BAR TOTAL PEMBAYARAN -->
+            <div class="total-payment-bar">
+              <span class="total-label">TOTAL PEMBAYARAN</span>
+              <strong class="total-amount" id="confirmTotalAmount">Rp4.350.000</strong>
+            </div>
+          </div>
+
+          <!-- KOLOM KANAN: SEBELUM MELANJUTKAN & TOMBOL BAYAR -->
+          <aside class="confirm-side-col">
+            <div class="before-continue-card">
+              <h2>Sebelum melanjutkan</h2>
+              <p>
+                Pastikan tanggal dan durasi sewa sudah sesuai. Pesanan diproses setelah pembayaran terverifikasi.
+              </p>
+            </div>
+
+            <a href="pembayaran.html" class="btn-rent-primary">
+              Lanjut ke Pembayaran
+            </a>
+
+            <button type="button" class="btn-back-edit" onclick="backToForm()">
+              ← Ubah Data Penyewaan
+            </button>
+          </aside>
         </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER 4 KOLOM -->
+  <footer class="footer-light">
+    <div class="container footer-grid-4">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">KostKita</a>
+        <p>Solusi pencarian kost terpercaya dan terjangkau untuk mahasiswa Indonesia.</p>
       </div>
-    </footer>
-    <script src="js/app.js"></script>
-  </body>
+
+      <div class="footer-col">
+        <h4>Kampus Populer</h4>
+        <ul>
+          <li><a href="cari-kost.html?q=UGM">Kost Dekat UGM</a></li>
+          <li><a href="cari-kost.html?q=UI">Kost Dekat UI</a></li>
+          <li><a href="cari-kost.html?q=ITB">Kost Dekat ITB</a></li>
+          <li><a href="cari-kost.html?q=UB">Kost Dekat UB</a></li>
+          <li><a href="cari-kost.html?q=Undip">Kost Dekat Undip</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Bantuan &amp; Panduan</h4>
+        <ul>
+          <li><a href="bantuan.html">Pusat Bantuan</a></li>
+          <li><a href="tentang-kami.html">Syarat &amp; Ketentuan</a></li>
+          <li><a href="tentang-kami.html">Kebijakan Privasi</a></li>
+          <li><a href="bantuan.html#faqSection">Panduan Sewa Aman</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Hubungi Kami</h4>
+        <ul class="contact-list">
+          <li>Email: halo@kostkita.id</li>
+          <li>WhatsApp: +62 812-3456-7890</li>
+          <li>Senin - Minggu (08.00 - 21.00 WIB)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom-bar">
+      <span>© 2026 KostKita. Hak cipta dilindungi undang-undang.</span>
+      <span>Indonesia Terkoneksi Mahasiswa</span>
+    </div>
+  </footer>
+
+  <script>
+    const MONTHLY_PRICE = 1450000;
+
+    function formatRupiah(num) {
+      return "Rp" + num.toLocaleString("id-ID");
+    }
+
+    function formatIndoDate(dateStr) {
+      if (!dateStr) return "1 Desember 2026";
+      const months = [
+        "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+        "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+      ];
+      const parts = dateStr.split("-");
+      if (parts.length !== 3) return dateStr;
+      const year = parts[0];
+      const monthName = months[parseInt(parts[1], 10) - 1] || "";
+      const day = parseInt(parts[2], 10);
+      return `${day} ${monthName} ${year}`;
+    }
+
+    function selectDuration(btn) {
+      document.querySelectorAll(".duration-option").forEach((el) => {
+        el.classList.remove("active");
+      });
+      btn.classList.add("active");
+      document.getElementById("durationMonths").value = btn.dataset.months;
+    }
+
+    function goToConfirmation(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("tenantName").value.trim() || "Nama Mahasiswa";
+      const email = document.getElementById("tenantEmail").value.trim();
+      const phone = document.getElementById("tenantPhone").value.trim();
+      const rawDate = document.getElementById("startDate").value;
+      const months = parseInt(document.getElementById("durationMonths").value, 10) || 3;
+      const note = document.getElementById("ownerNote").value.trim();
+
+      const formattedDate = formatIndoDate(rawDate);
+      const total = MONTHLY_PRICE * months;
+
+      document.getElementById("confirmTenantName").textContent = name;
+      document.getElementById("confirmStartDate").textContent = formattedDate;
+      document.getElementById("confirmDuration").textContent = `${months} bulan`;
+      document.getElementById("confirmTotalAmount").textContent = formatRupiah(total);
+
+      // Simpan data pesanan sementara untuk halaman pembayaran
+      localStorage.setItem(
+        "kostkita_booking",
+        JSON.stringify({
+          kostName: "Kost Dahlia",
+          tenantName: name,
+          email,
+          phone,
+          startDate: formattedDate,
+          months,
+          monthlyPrice: MONTHLY_PRICE,
+          totalAmount: total,
+          note
+        })
+      );
+
+      document.getElementById("stepFormSection").classList.add("hidden");
+      document.getElementById("stepConfirmSection").classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function backToForm() {
+      document.getElementById("stepConfirmSection").classList.add("hidden");
+      document.getElementById("stepFormSection").classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+  <script src="js/app.js"></script>
+</body>
+
 </html>

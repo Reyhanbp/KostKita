@@ -1,0 +1,383 @@
+/* ================= HALAMAN PEMBAYARAN ================= */
+.pay-page-main {
+    background: #f6faf7;
+    padding: 36px 0 84px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.pay-page-header {
+    margin-bottom: 24px;
+}
+
+.pay-page-header h1 {
+    font-size: clamp(1.65rem, 3vw, 2.15rem);
+    font-weight: 800;
+    color: #161e2e;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+}
+
+.pay-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ================= STATE 1: PILIH METODE & RINGKASAN ================= */
+.pay-layout {
+    display: grid;
+    grid-template-columns: 1.45fr 0.85fr;
+    gap: 26px;
+    align-items: start;
+}
+
+.pay-methods-card {
+    background: #ffffff;
+    border: 1px solid #e6ece8;
+    border-radius: 18px;
+    padding: 28px 30px;
+    box-shadow: 0 12px 30px -16px rgba(15, 23, 42, 0.05);
+}
+
+.pay-methods-card h2 {
+    font-size: 1.06rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.method-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.method-option {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e2e8e4;
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.method-option:hover {
+    border-color: #a7d7bc;
+}
+
+.method-option.active {
+    background: #e5f3eb;
+    border-color: var(--green);
+}
+
+.method-info strong {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 3px;
+}
+
+.method-info span {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* Radio Indicator Kanan */
+.radio-indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--green);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #ffffff;
+}
+
+.method-option.active .radio-indicator::after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--green);
+}
+
+/* Ringkasan Pembayaran Kanan */
+.pay-summary-card {
+    background: #ffffff;
+    border: 1px solid #e6ece8;
+    border-radius: 18px;
+    padding: 26px 24px;
+    box-shadow: 0 12px 30px -16px rgba(15, 23, 42, 0.05);
+}
+
+.pay-summary-card h2 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+}
+
+.summary-meta {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    margin-bottom: 22px;
+}
+
+.summary-total-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.summary-total-row span {
+    font-size: 0.86rem;
+    color: var(--text-muted);
+}
+
+.summary-total-row strong {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--green);
+    letter-spacing: -0.02em;
+}
+
+.btn-pay-now {
+    width: 100%;
+    background: var(--green);
+    color: #ffffff;
+    border: none;
+    border-radius: 11px;
+    padding: 13px 20px;
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-pay-now:hover {
+    background: var(--green-hover);
+}
+
+.prototype-note {
+    font-size: 0.74rem;
+    color: #94a3b8;
+    margin-top: 12px;
+    padding-left: 4px;
+}
+
+/* ================= STATE 2: PEMBAYARAN BERHASIL ================= */
+.success-card-wrap {
+    display: flex;
+    justify-content: center;
+    padding-top: 12px;
+}
+
+.success-card {
+    width: 100%;
+    max-width: 580px;
+    background: #ffffff;
+    border: 1px solid #e6ece8;
+    border-radius: 20px;
+    padding: 40px 36px;
+    text-align: center;
+    box-shadow: 0 16px 38px -18px rgba(15, 23, 42, 0.07);
+}
+
+.success-check-circle {
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background: #e3f3e9;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.success-card h2 {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--green);
+    margin-bottom: 6px;
+}
+
+.success-desc {
+    font-size: 0.86rem;
+    color: var(--text-muted);
+    margin-bottom: 26px;
+}
+
+/* Kotak Detail Transaksi */
+.receipt-box {
+    background: #f3f7f4;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.receipt-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 0.86rem;
+}
+
+.receipt-row span {
+    color: var(--text-muted);
+}
+
+.receipt-row strong {
+    color: var(--text-dark);
+    font-weight: 800;
+}
+
+.receipt-row strong.receipt-total {
+    color: var(--green);
+    font-size: 0.96rem;
+}
+
+/* Tombol Aksi Sukses */
+.success-actions {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 14px;
+}
+
+.btn-success-primary,
+.btn-success-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 18px;
+    border-radius: 11px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #ffffff;
+    transition: background 0.2s ease;
+}
+
+.btn-success-primary {
+    background: var(--green);
+}
+
+.btn-success-primary:hover {
+    background: var(--green-hover);
+}
+
+.btn-success-dark {
+    background: #124829;
+}
+
+.btn-success-dark:hover {
+    background: #0d371f;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .pay-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 540px) {
+
+    .pay-methods-card,
+    .success-card {
+        padding: 24px 18px;
+    }
+
+    .success-actions {
+        grid-template-columns: 1fr;
+    }
+}
+/* ================= FOOTER 4 KOLOM ================= */
+.footer-light {
+    background: #ffffff;
+    border-top: 1px solid #e8edf3;
+    padding-top: 48px;
+}
+
+.footer-grid-4 {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+    gap: 32px;
+    padding-bottom: 40px;
+}
+
+.footer-brand p {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    max-width: 240px;
+    line-height: 1.6;
+}
+
+.footer-col h4 {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+}
+
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.footer-col li,
+.footer-col a {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    transition: color 0.15s;
+}
+
+.footer-col a:hover {
+    color: var(--green);
+}
+
+.footer-bottom-bar {
+    border-top: 1px solid #f1f5f9;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.76rem;
+    color: #94a3b8;
+}
+
+@media (max-width: 960px) {
+    .footer-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .footer-grid-4 {
+        grid-template-columns: 1fr;
+    }
+}

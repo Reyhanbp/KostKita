@@ -1,65 +1,258 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pembayaran | KostKita</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="container nav">
-        <a class="logo" href="index.html">Kost<span>Kita</span></a>
-        <nav class="navlinks">
-          <a href="index.html">Beranda</a><a href="cari-kost.html">Cari Kost</a
-          ><a href="tentang-kami.html">Tentang Kami</a
-          ><a href="bantuan.html">Bantuan</a
-          ><a class="btn outline" href="login.html">Masuk</a>
-        </nav>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pembayaran | KostKita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pembayaran-style.css" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="topbar">
+    <div class="container nav">
+      <a class="logo" href="index.html">KostKita</a>
+
+      <nav class="navlinks">
+        <a href="index.html">Beranda</a>
+        <a href="cari-kost.html">Cari Kost</a>
+        <a href="tentang-kami.html">Tentang Kami</a>
+        <a href="bantuan.html">Bantuan</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn-auth" href="riwayat-sewa.html">Akun Saya</a>
       </div>
-    </header>
-    <main>
-      <section class="container">
-        <div class="form-wrap">
-          <div class="form-card">
-            <span class="eyebrow">Langkah terakhir</span>
-            <h1>Pembayaran</h1>
-            <p class="muted">
-              Pilih metode pembayaran untuk melanjutkan demo transaksi.
-            </p>
-            <div class="notice">
-              Total contoh pembayaran: <strong>Rp850.000</strong>. Pembayaran
-              pada website ini masih berupa simulasi.
-            </div>
-            <form id="payForm">
-              <div class="field">
-                <label>Metode pembayaran</label
-                ><select required>
-                  <option value="">Pilih metode</option>
-                  <option>Transfer Bank</option>
-                  <option>Virtual Account</option>
-                  <option>E-Wallet</option>
-                </select>
-              </div>
-              <button class="btn" style="width: 100%">
-                Konfirmasi Pembayaran
+    </div>
+  </header>
+
+  <main class="pay-page-main">
+    <div class="container">
+      <!-- ================= STATE 1: PEMBAYARAN ================= -->
+      <section id="paymentStepSection">
+        <div class="pay-page-header">
+          <h1>Pembayaran</h1>
+          <p class="pay-subtitle">Pilih metode pembayaran yang tersedia.</p>
+        </div>
+
+        <div class="pay-layout">
+          <!-- KOLOM KIRI: PILIH METODE PEMBAYARAN -->
+          <div class="pay-methods-card">
+            <h2>Pilih Metode Pembayaran</h2>
+
+            <div class="method-list" role="radiogroup" aria-label="Metode Pembayaran">
+              <!-- Opsi 1: Transfer Bank -->
+              <button type="button" class="method-option active" data-method="Transfer Bank"
+                onclick="selectPaymentMethod(this)">
+                <div class="method-info">
+                  <strong>Transfer Bank</strong>
+                  <span>BCA / BRI / Mandiri</span>
+                </div>
+                <span class="radio-indicator" aria-hidden="true"></span>
               </button>
-            </form>
+
+              <!-- Opsi 2: QRIS -->
+              <button type="button" class="method-option" data-method="QRIS" onclick="selectPaymentMethod(this)">
+                <div class="method-info">
+                  <strong>QRIS</strong>
+                  <span>Scan kode QR</span>
+                </div>
+                <span class="radio-indicator" aria-hidden="true"></span>
+              </button>
+
+              <!-- Opsi 3: E-Wallet -->
+              <button type="button" class="method-option" data-method="E-Wallet" onclick="selectPaymentMethod(this)">
+                <div class="method-info">
+                  <strong>E-Wallet</strong>
+                  <span>OVO / DANA / GoPay</span>
+                </div>
+                <span class="radio-indicator" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- KOLOM KANAN: RINGKASAN PEMBAYARAN -->
+          <aside class="pay-summary-col">
+            <div class="pay-summary-card">
+              <h2>Ringkasan Pembayaran</h2>
+              <p class="summary-meta" id="paySummaryMeta">Kost Dahlia • 3 bulan</p>
+
+              <div class="summary-total-row">
+                <span>Total</span>
+                <strong id="paySummaryTotal">Rp4.350.000</strong>
+              </div>
+
+              <button type="button" class="btn-pay-now" onclick="processPayment()">
+                Bayar Sekarang
+              </button>
+            </div>
+
+            <p class="prototype-note">* Simulasi pembayaran untuk prototype.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ================= STATE 2: PEMBAYARAN BERHASIL ================= -->
+      <section id="paymentSuccessSection" class="hidden">
+        <div class="pay-page-header">
+          <h1>Pembayaran Berhasil</h1>
+          <p class="pay-subtitle">
+            Terima kasih! Pembayaran penyewaan kamu telah berhasil.
+          </p>
+        </div>
+
+        <div class="success-card-wrap">
+          <div class="success-card">
+            <div class="success-check-circle">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+
+            <h2>Pembayaran berhasil!</h2>
+            <p class="success-desc">Pesanan kamu sudah tercatat di KostKita.</p>
+
+            <div class="receipt-box">
+              <div class="receipt-row">
+                <span>Nomor transaksi</span>
+                <strong id="receiptCode">KK-2026-00125</strong>
+              </div>
+              <div class="receipt-row">
+                <span>Total pembayaran</span>
+                <strong class="receipt-total" id="receiptTotal">Rp4.350.000</strong>
+              </div>
+            </div>
+
+            <div class="success-actions">
+              <a href="riwayat-sewa.html" class="btn-success-primary">
+                Lihat Pesanan
+              </a>
+              <a href="index.html" class="btn-success-dark">
+                Kembali ke Beranda
+              </a>
+            </div>
           </div>
         </div>
       </section>
-    </main>
-    <footer class="footer">
-      <div class="container footer-row">
-        <div>
-          <div class="logo" style="color: white">Kost<span>Kita</span></div>
-          <p class="small">Temukan tempat tinggal nyaman dekat kampus.</p>
-        </div>
-        <div class="small">
-          © 2026 KostKita · Website pencarian kost mahasiswa
-        </div>
+    </div>
+  </main>
+
+  <!-- FOOTER 4 KOLOM -->
+  <footer class="footer-light">
+    <div class="container footer-grid-4">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">KostKita</a>
+        <p>Solusi pencarian kost terpercaya dan terjangkau untuk mahasiswa Indonesia.</p>
       </div>
-    </footer>
-    <script src="js/app.js"></script>
-  </body>
+
+      <div class="footer-col">
+        <h4>Kampus Populer</h4>
+        <ul>
+          <li><a href="cari-kost.html?q=UGM">Kost Dekat UGM</a></li>
+          <li><a href="cari-kost.html?q=UI">Kost Dekat UI</a></li>
+          <li><a href="cari-kost.html?q=ITB">Kost Dekat ITB</a></li>
+          <li><a href="cari-kost.html?q=UB">Kost Dekat UB</a></li>
+          <li><a href="cari-kost.html?q=Undip">Kost Dekat Undip</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Bantuan &amp; Panduan</h4>
+        <ul>
+          <li><a href="bantuan.html">Pusat Bantuan</a></li>
+          <li><a href="tentang-kami.html">Syarat &amp; Ketentuan</a></li>
+          <li><a href="tentang-kami.html">Kebijakan Privasi</a></li>
+          <li><a href="bantuan.html#faqSection">Panduan Sewa Aman</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Hubungi Kami</h4>
+        <ul class="contact-list">
+          <li>Email: halo@kostkita.id</li>
+          <li>WhatsApp: +62 812-3456-7890</li>
+          <li>Senin - Minggu (08.00 - 21.00 WIB)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom-bar">
+      <span>© 2026 KostKita. Hak cipta dilindungi undang-undang.</span>
+      <span>Indonesia Terkoneksi Mahasiswa</span>
+    </div>
+  </footer>
+
+  <script>
+    let selectedMethod = "Transfer Bank";
+    let bookingData = {
+      kostName: "Kost Dahlia",
+      months: 3,
+      totalAmount: 4350000
+    };
+
+    function formatRupiah(num) {
+      return "Rp" + Number(num).toLocaleString("id-ID");
+    }
+
+    // Sinkronkan data pesanan dari halaman pengajuan-sewa jika ada
+    (function initPaymentSummary() {
+      try {
+        const saved = JSON.parse(localStorage.getItem("kostkita_booking"));
+        if (saved && saved.totalAmount) {
+          bookingData = saved;
+          const totalFormatted = formatRupiah(saved.totalAmount);
+          document.getElementById("paySummaryMeta").textContent =
+            `${saved.kostName || "Kost Dahlia"} • ${saved.months || 3} bulan`;
+          document.getElementById("paySummaryTotal").textContent = totalFormatted;
+          document.getElementById("receiptTotal").textContent = totalFormatted;
+        }
+      } catch (err) {
+        // Gunakan nilai default jika localStorage kosong
+      }
+    })();
+
+    function selectPaymentMethod(btn) {
+      document.querySelectorAll(".method-option").forEach((el) => {
+        el.classList.remove("active");
+      });
+      btn.classList.add("active");
+      selectedMethod = btn.dataset.method;
+    }
+
+    function processPayment() {
+      const trxCode = "KK-2026-00125";
+      document.getElementById("receiptCode").textContent = trxCode;
+
+      // Simpan riwayat transaksi simulasi
+      try {
+        const history = JSON.parse(localStorage.getItem("kostkita_orders") || "[]");
+        history.unshift({
+          code: trxCode,
+          kostName: bookingData.kostName || "Kost Dahlia",
+          months: bookingData.months || 3,
+          startDate: bookingData.startDate || "1 Desember 2026",
+          totalAmount: bookingData.totalAmount || 4350000,
+          method: selectedMethod,
+          status: "Lunas"
+        });
+        localStorage.setItem("kostkita_orders", JSON.stringify(history));
+      } catch (err) {
+        // Abaikan jika storage tidak tersedia
+      }
+
+      document.getElementById("paymentStepSection").classList.add("hidden");
+      document.getElementById("paymentSuccessSection").classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+  <script src="js/app.js"></script>
+</body>
+
 </html>

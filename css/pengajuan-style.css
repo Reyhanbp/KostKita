@@ -1,0 +1,388 @@
+/* ================= HALAMAN PENGAJUAN & KONFIRMASI SEWA ================= */
+.rent-page-main {
+    background: #f6faf7;
+    padding: 36px 0 76px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.rent-page-header {
+    margin-bottom: 24px;
+}
+
+.rent-page-header h1 {
+    font-size: clamp(1.65rem, 3vw, 2.15rem);
+    font-weight: 800;
+    color: #161e2e;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+}
+
+.rent-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Layout 2 Kolom */
+.rent-layout {
+    display: grid;
+    grid-template-columns: 1.45fr 0.85fr;
+    gap: 26px;
+    align-items: start;
+}
+
+/* ================= LANGKAH 1: FORM AJUKAN SEWA ================= */
+.rent-form-card {
+    background: #ffffff;
+    border: 1px solid #e6ece8;
+    border-radius: 18px;
+    padding: 28px 30px;
+    box-shadow: 0 12px 30px -16px rgba(15, 23, 42, 0.05);
+}
+
+.rent-field {
+    margin-bottom: 18px;
+}
+
+.rent-field label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 7px;
+}
+
+.rent-field input[type="text"],
+.rent-field input[type="email"],
+.rent-field input[type="tel"],
+.rent-field input[type="date"] {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #dfe5e1;
+    border-radius: 10px;
+    padding: 11px 14px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.rent-field input::placeholder {
+    color: #94a3b8;
+}
+
+.rent-field input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(21, 107, 56, 0.08);
+}
+
+.rent-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+/* Pilihan Durasi Sewa (4 Tombol) */
+.duration-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.duration-option {
+    background: #ffffff;
+    border: 1px solid #dfe5e1;
+    border-radius: 10px;
+    padding: 11px 10px;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.duration-option:hover {
+    border-color: var(--green);
+}
+
+.duration-option.active {
+    background: #e5f3eb;
+    border-color: var(--green);
+    color: var(--green);
+    font-weight: 700;
+}
+
+/* Tombol Utama Hijau */
+.btn-rent-primary {
+    display: block;
+    width: 100%;
+    background: var(--green);
+    color: #ffffff;
+    border: none;
+    border-radius: 11px;
+    padding: 13px 20px;
+    text-align: center;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: background 0.2s ease;
+}
+
+.btn-rent-primary:hover {
+    background: var(--green-hover);
+}
+
+/* Kartu Ringkasan Kost Kanan */
+.rent-summary-card {
+    background: #ffffff;
+    border: 1px solid #e6ece8;
+    border-radius: 18px;
+    padding: 26px 24px;
+    min-height: 230px;
+    box-shadow: 0 12px 30px -16px rgba(15, 23, 42, 0.05);
+}
+
+.rent-summary-card h2 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 18px;
+}
+
+.summary-kost-name {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.summary-kost-price {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--green);
+    margin-bottom: 14px;
+}
+
+.summary-kost-loc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* ================= LANGKAH 2: KONFIRMASI PENYEWAAN ================= */
+.confirm-detail-card {
+    background: #ffffff;
+    border: 1px solid #e6ece8;
+    border-radius: 18px;
+    padding: 28px 30px;
+    margin-bottom: 16px;
+    box-shadow: 0 12px 30px -16px rgba(15, 23, 42, 0.05);
+}
+
+.confirm-detail-card h2 {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 22px;
+}
+
+.confirm-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.confirm-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 0.88rem;
+}
+
+.confirm-row span {
+    color: var(--text-muted);
+}
+
+.confirm-row strong {
+    color: var(--text-dark);
+    font-weight: 700;
+    text-align: right;
+}
+
+/* Bar Total Pembayaran */
+.total-payment-bar {
+    background: #e1f2e8;
+    border-radius: 14px;
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.total-label {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--green);
+}
+
+.total-amount {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--green);
+    letter-spacing: -0.02em;
+}
+
+/* Kolom Kanan Konfirmasi */
+.confirm-side-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.before-continue-card {
+    background: #ffffff;
+    border: 1px solid #e6ece8;
+    border-radius: 18px;
+    padding: 26px 24px;
+    min-height: 195px;
+    box-shadow: 0 12px 30px -16px rgba(15, 23, 42, 0.05);
+}
+
+.before-continue-card h2 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.before-continue-card p {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+}
+
+.btn-back-edit {
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    padding: 4px;
+}
+
+.btn-back-edit:hover {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .rent-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 580px) {
+
+    .rent-form-card,
+    .confirm-detail-card {
+        padding: 22px 18px;
+    }
+
+    .rent-row-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .duration-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .total-payment-bar {
+        padding: 18px 20px;
+    }
+
+    .total-amount {
+        font-size: 1.25rem;
+    }
+}
+/* ================= FOOTER 4 KOLOM ================= */
+.footer-light {
+    background: #ffffff;
+    border-top: 1px solid #e8edf3;
+    padding-top: 48px;
+}
+
+.footer-grid-4 {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+    gap: 32px;
+    padding-bottom: 40px;
+}
+
+.footer-brand p {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    max-width: 240px;
+    line-height: 1.6;
+}
+
+.footer-col h4 {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+}
+
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.footer-col li,
+.footer-col a {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    transition: color 0.15s;
+}
+
+.footer-col a:hover {
+    color: var(--green);
+}
+
+.footer-bottom-bar {
+    border-top: 1px solid #f1f5f9;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.76rem;
+    color: #94a3b8;
+}
+
+@media (max-width: 960px) {
+    .footer-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .footer-grid-4 {
+        grid-template-columns: 1fr;
+    }
+}

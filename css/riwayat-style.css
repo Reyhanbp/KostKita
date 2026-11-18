@@ -1,0 +1,197 @@
+/* ================= HALAMAN RIWAYAT PENYEWAAN ================= */
+.history-page-main {
+    background: #f6faf7;
+    padding: 40px 0 96px;
+    min-height: 62vh;
+}
+
+.history-page-header {
+    margin-bottom: 26px;
+}
+
+.history-page-header h1 {
+    font-size: clamp(1.65rem, 3vw, 2.15rem);
+    font-weight: 800;
+    color: #161e2e;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+}
+
+.history-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Daftar Kartu Riwayat */
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.history-card {
+    background: #ffffff;
+    border: 1px solid #e6ece8;
+    border-radius: 16px;
+    padding: 24px 32px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr auto;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 8px 24px -16px rgba(15, 23, 42, 0.05);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.history-card:hover {
+    border-color: #cde3d5;
+    transform: translateY(-1px);
+}
+
+/* Kolom Kiri: Nama & Jadwal */
+.history-kost-info h2 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.history-kost-info p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* Kolom Tengah: Nominal Harga */
+.history-price-info strong {
+    display: block;
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: var(--green);
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+}
+
+.history-price-info span {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* Kolom Kanan: Badge Status */
+.history-status-col {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.status-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 148px;
+    padding: 9px 20px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.status-paid {
+    background: #e5f3eb;
+    color: var(--green);
+}
+
+.status-unpaid {
+    background: #fdf2d6;
+    color: #9a6700;
+    transition: background 0.2s ease;
+}
+
+.status-unpaid:hover {
+    background: #fbe7b5;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .history-card {
+        grid-template-columns: 1fr;
+        padding: 20px 22px;
+        gap: 14px;
+    }
+
+    .history-status-col {
+        justify-content: flex-start;
+    }
+
+    .status-pill-badge {
+        min-width: 132px;
+    }
+}
+/* ================= FOOTER 4 KOLOM ================= */
+.footer-light {
+    background: #ffffff;
+    border-top: 1px solid #e8edf3;
+    padding-top: 48px;
+}
+
+.footer-grid-4 {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+    gap: 32px;
+    padding-bottom: 40px;
+}
+
+.footer-brand p {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    max-width: 240px;
+    line-height: 1.6;
+}
+
+.footer-col h4 {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+}
+
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.footer-col li,
+.footer-col a {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    transition: color 0.15s;
+}
+
+.footer-col a:hover {
+    color: var(--green);
+}
+
+.footer-bottom-bar {
+    border-top: 1px solid #f1f5f9;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.76rem;
+    color: #94a3b8;
+}
+
+@media (max-width: 960px) {
+    .footer-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .footer-grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
