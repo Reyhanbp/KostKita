@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | KostKita</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a class="logo" href="index.html">Kost<span>Kita</span></a>
+        <nav class="navlinks">
+          <a href="index.html">Beranda</a><a href="cari-kost.html">Cari Kost</a
+          ><a href="tentang-kami.html">Tentang Kami</a
+          ><a href="bantuan.html">Bantuan</a
+          ><a class="btn outline" href="login.html">Masuk</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="auth-layout">
+        <div class="auth-side">
+          <span class="eyebrow" style="color: #f5c16d"
+            >Selamat datang di KostKita</span
+          >
+          <h1>Temukan kost yang pas untuk perjalanan kuliahmu.</h1>
+          <p>
+            Cari tempat tinggal dekat kampus dengan informasi fasilitas, harga,
+            dan lokasi yang lebih mudah dipahami.
+          </p>
+        </div>
+        <div class="auth-form">
+          <div class="form-card">
+            <div class="logo">Kost<span>Kita</span></div>
+            <div class="tabs">
+              <button class="active" data-tab="login">Masuk</button
+              ><button data-tab="register">Daftar Akun</button>
+            </div>
+            <form id="loginForm">
+              <h1>Masuk ke akun</h1>
+              <p class="muted">Gunakan akun KostKita untuk melanjutkan.</p>
+              <div class="field">
+                <label>Email</label
+                ><input type="email" placeholder="nama@email.com" required />
+              </div>
+              <div class="field">
+                <label>Kata sandi</label
+                ><input
+                  type="password"
+                  placeholder="Masukkan kata sandi"
+                  required
+                />
+              </div>
+              <button class="btn" style="width: 100%">Masuk</button>
+              <p class="small muted">
+                Belum punya akun?
+                <a
+                  href="#"
+                  data-switch="register"
+                  style="color: var(--green); font-weight: 700"
+                  >Daftar sekarang</a
+                >
+              </p>
+            </form>
+            <form id="registerForm" class="hidden">
+              <h1>Buat akun baru</h1>
+              <p class="muted">
+                Daftar agar bisa melihat detail dan mengajukan sewa kost.
+              </p>
+              <div class="field">
+                <label>Nama lengkap</label
+                ><input type="text" placeholder="Nama kamu" required />
+              </div>
+              <div class="field">
+                <label>Email</label
+                ><input type="email" placeholder="nama@email.com" required />
+              </div>
+              <div class="field">
+                <label>Kata sandi</label
+                ><input
+                  type="password"
+                  minlength="6"
+                  placeholder="Minimal 6 karakter"
+                  required
+                />
+              </div>
+              <button class="btn" style="width: 100%">Buat Akun</button>
+              <p class="small muted">
+                Sudah punya akun?
+                <a
+                  href="#"
+                  data-switch="login"
+                  style="color: var(--green); font-weight: 700"
+                  >Masuk</a
+                >
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container footer-row">
+        <div>
+          <div class="logo" style="color: white">Kost<span>Kita</span></div>
+          <p class="small">Temukan tempat tinggal nyaman dekat kampus.</p>
+        </div>
+        <div class="small">
+          © 2026 KostKita · Website pencarian kost mahasiswa
+        </div>
+      </div>
+    </footer>
+    <script src="js/app.js"></script>
+  </body>
+</html>

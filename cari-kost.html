@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cari Kost | KostKita</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a class="logo" href="index.html">Kost<span>Kita</span></a>
+        <nav class="navlinks">
+          <a href="index.html">Beranda</a><a href="cari-kost.html">Cari Kost</a
+          ><a href="tentang-kami.html">Tentang Kami</a
+          ><a href="bantuan.html">Bantuan</a
+          ><a class="btn outline" href="login.html">Masuk</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="container">
+        <div class="page-head">
+          <span class="eyebrow">Temukan hunian</span>
+          <h1>Cari Kost</h1>
+          <p class="muted">
+            Gunakan pencarian dan filter untuk menemukan kost yang sesuai.
+          </p>
+        </div>
+        <div class="filters">
+          <div class="field">
+            <label>Kata kunci / lokasi</label
+            ><input id="searchKost" placeholder="Contoh: Sukolilo" />
+          </div>
+          <div class="field">
+            <label>Rentang harga</label
+            ><select id="priceFilter">
+              <option value="">Semua harga</option>
+              <option value="1000000">Di bawah Rp1.000.000</option>
+              <option value="1500000">Di bawah Rp1.500.000</option>
+            </select>
+          </div>
+          <button class="btn" onclick="filterKost()">Terapkan Filter</button>
+        </div>
+        <div class="grid" id="kostList">
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=900"
+              alt="Kamar kost"
+            />
+            <div class="card-body">
+              <span class="tag">Dekat kampus</span>
+              <h3>Kost Melati Residence</h3>
+              <p class="muted small">Sukolilo, Surabaya</p>
+              <p class="price">
+                Rp850.000 <span class="small muted">/ bulan</span>
+              </p>
+              <a class="btn" href="detail-kost.html">Lihat Detail</a>
+            </div>
+          </article>
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900"
+              alt="Kamar kost nyaman"
+            />
+            <div class="card-body">
+              <span class="tag">Wi-Fi</span>
+              <h3>Kost Harmoni</h3>
+              <p class="muted small">Keputih, Surabaya</p>
+              <p class="price">
+                Rp1.000.000 <span class="small muted">/ bulan</span>
+              </p>
+              <a class="btn" href="detail-kost.html">Lihat Detail</a>
+            </div>
+          </article>
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900"
+              alt="Interior kamar"
+            />
+            <div class="card-body">
+              <span class="tag">Kamar mandi dalam</span>
+              <h3>Kost Kampus Point</h3>
+              <p class="muted small">Gebang, Surabaya</p>
+              <p class="price">
+                Rp1.200.000 <span class="small muted">/ bulan</span>
+              </p>
+              <a class="btn" href="detail-kost.html">Lihat Detail</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container footer-row">
+        <div>
+          <div class="logo" style="color: white">Kost<span>Kita</span></div>
+          <p class="small">Temukan tempat tinggal nyaman dekat kampus.</p>
+        </div>
+        <div class="small">
+          © 2026 KostKita · Website pencarian kost mahasiswa
+        </div>
+      </div>
+    </footer>
+    <script src="js/app.js"></script>
+  </body>
+</html>
